@@ -8,12 +8,20 @@ const TripsDB = AppDataSource.getRepository(Trips);
 
 router.get(
   "/",(async (req:Request, res:Response) => {
-    try {
-      const trips = await TripsDB.find();
-      res.status(200).json(trips);
-    }catch (err) {
-      console.log(err);
-    }
+    const builder = TripsDB.createQueryBuilder("trips")
+
+    const page:number = parseInt(req.query.page as any) || 1
+    const size:number = parseInt(req.query.size as any) || 50
+    const total = await builder.getCount()
+
+    builder.offset((page-1) * size).limit(size)
+
+    res.status(200).send({
+      data:await builder.getMany(),
+      total,
+      page,
+      lastpage: Math.ceil(total / size)
+    })
   })
 );
 
