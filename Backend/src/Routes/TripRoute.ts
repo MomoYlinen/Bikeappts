@@ -1,5 +1,4 @@
 import express, {Request,Response} from "express";
-import { QueryBuilder } from "typeorm";
 import { AppDataSource } from "../data-source"
 import 'reflect-metadata'
 import { Trips } from "../entity/Trips";
@@ -32,7 +31,7 @@ router.get(
 router.get(
   "/returnstation/:id",(async (req:Request, res:Response) => {
     try {
-      const returnstation = await TripsDB.createQueryBuilder("trips").where("trips.returnstationID = :id", { id: parseInt(req.params.id) }).limit(50).getRawMany()
+      const returnstation = await TripsDB.createQueryBuilder("trips").where("trips.returnstationID = :id", { id: parseInt(req.params.id) }).getMany()
       res.status(200).json(returnstation);
     }catch (err) {
       console.log(err);
