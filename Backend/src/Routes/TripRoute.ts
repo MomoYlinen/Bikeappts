@@ -12,7 +12,7 @@ router.get(
     const builder = TripsDB.createQueryBuilder("trips")
 
     const page:number = parseInt(req.query.page as any) > 1 ? parseInt(req.query.page as any) : 1
-    const size:number = parseInt(req.query.size as any) >= 10 ? parseInt(req.query.size as any) : 50
+    const size:number = parseInt(req.query.size as any) >= 10 ? parseInt(req.query.size as any) : 300000
     const total = await builder.getCount()
 
     if (Math.ceil(total / size) < page){
