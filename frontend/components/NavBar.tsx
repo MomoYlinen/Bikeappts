@@ -11,6 +11,7 @@ import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from '@mui/material';
 
 const pages = ['Home', 'Stations'];
 
@@ -26,22 +27,23 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" color='secondary' sx={{borderBottom:3,borderBottomColor:'#BAFF39',boxShadow:'#BAFF39'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <DirectionsBikeIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
-            variant="h6"
+            variant="h3"
             noWrap
             component="a"
             href="/"
             sx={{
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: '#FFFFD2',
-              textDecoration: 'none'
+              fontWeight: 900,
+              letterSpacing: '.4rem',
+              color: '#BAFF39',
+              textDecoration: 'none',
+              textShadow:20
 
             }}
           >
@@ -52,30 +54,37 @@ function NavBar() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: '#FFFFD2',
+              fontWeight: 900,
+              letterSpacing: '.7rem',
+              color: '#BAFF39',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            BikeApp
           </Typography>
           <Box sx={{ flexGrow: 1,justifyContent:'center' ,display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
               <Button
-                key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, mr:10 ,color: '#FFFFD2', display: 'block' }}
+                sx={{ my: 2, mr:10 ,color: '#BAFF39', display: 'block' }}
               >
-                {page}
+              <Link href='/' color='#BAFF39' underline='none'>
+                  <Typography textAlign="center">Home</Typography>
+                </Link>
               </Button>
-            ))}
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, mr:10 ,color: '#BAFF39', display: 'block' }}
+              >
+              <Link href='/stations' color='#BAFF39'underline='none'>
+                  <Typography textAlign="center">Stations</Typography>
+                  </Link>
+              </Button>
           </Box>
           <Box sx={{ flexGrow: 1, justifyContent:'flex-end', display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -106,11 +115,16 @@ function NavBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Link href='/' color='#000000' underline='none'>
+                  <Typography textAlign="center" >Home</Typography>
+                  </Link>
                 </MenuItem>
-              ))}
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Link href='/stations' color='#000000'underline='none'>
+                  <Typography textAlign="center">Stations</Typography>
+                  </Link>
+                </MenuItem>
             </Menu>
           </Box>
 

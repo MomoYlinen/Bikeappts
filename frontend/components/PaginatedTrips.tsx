@@ -45,25 +45,25 @@ export default function PaginatedTrips() {
       <div style={{display:'flex',flexDirection:'row',justifyContent:'space-between', alignItems: 'center', marginTop:50}}>
         <Pagination
         count={data?.lastpage}
-        color='secondary'
+        color='primary'
         className='pagination'
         page={page}
         onChange={handlePaginationChange}
         size='small'
       />
       <div style={{display:'flex',flexDirection:'row',justifyContent:'start', alignItems: 'center'}}>
-      <TextField id="outlined-basic" label="Search" size='small' variant="outlined" sx={{mr:2, width:'90%'}}/>
-      <Button variant="contained" color='secondary' size='small'>Search</Button>
+      <TextField id="outlined-basic" label="Search" size='small' variant="outlined" color='primary' sx={{mr:2, width:'90%', background:'#ffffff',border:1}}/>
+      <Button variant="contained" color='primary' size='small'>Search</Button>
       </div>
       </div>
     <TableContainer component={Paper} sx={{display:'flex',justifyContent:'center',mt:1, border:{xs:0,sm:1}, borderRadius:2}}>
-      <Table stickyHeader aria-label="sticky table" sx={{tableLayout:'fixed'}}>
-        <TableHead sx={{border:1,boxShadowBottom:20}}>
+      <Table  sx={{tableLayout:'fixed'}}>
+        <TableHead sx={{border:1,boxShadowBottom:20, backgroundColor:'#BAFF39'}}>
           <TableRow>
-            <TableCell align='center'sx={{fontSize:{xs:12,sm:18},fontWeight: 700,}}>Departure Station</TableCell>
-            <TableCell align="center"sx={{fontSize:{xs:12,sm:18},fontWeight: 700,}}>Return Station</TableCell>
-            <TableCell align="center"sx={{fontSize:{xs:12,sm:18},fontWeight: 700,}}>Duration</TableCell>
-            <TableCell align="center"sx={{fontSize:{xs:12,sm:18},fontWeight: 700,}}>Distance</TableCell>
+            <TableCell align='center'sx={{fontSize:{xs:12,sm:18},fontWeight: 700,boxShadowBottom:20, backgroundColor:'#6E6E6E', color:'#BAFF39'}}>Departure Station</TableCell>
+            <TableCell align="center"sx={{fontSize:{xs:12,sm:18},fontWeight: 700,boxShadowBottom:20, backgroundColor:'#6E6E6E', color:'#BAFF39'}}>Return Station</TableCell>
+            <TableCell align="center"sx={{fontSize:{xs:12,sm:18},fontWeight: 700,boxShadowBottom:20, backgroundColor:'#6E6E6E', color:'#BAFF39'}}>Duration</TableCell>
+            <TableCell align="center"sx={{fontSize:{xs:12,sm:18},fontWeight: 700,boxShadowBottom:20, backgroundColor:'#6E6E6E', color:'#BAFF39'}}>Distance</TableCell>
           </TableRow>
         </TableHead>
         <TableBody sx={{backgroundColor:'#ded9d9'}}>
@@ -73,12 +73,12 @@ export default function PaginatedTrips() {
               key={trip.departurestationID}
               sx={{boxShadowBottom:10}}
             >
-              <TableCell  align="center" size='small' sx={{fontSize:{xs:10,sm:16}}}>
+              <TableCell  align="center" size='small' sx={{fontSize:{xs:10,sm:16},color:'#00000'}}>
                 {trip.departurestation}
               </TableCell>
-              <TableCell align="center" size='small'sx={{fontSize:{xs:10,sm:16}}} >{trip.returnstation}</TableCell>
-              <TableCell align="center" size='small' sx={{fontSize:{xs:10,sm:16}}}>{parseInt(trip.duration/60)} min</TableCell>
-              <TableCell align="center" size='small'sx={{fontSize:{xs:10,sm:16}}}>{trip.distance} m</TableCell>
+              <TableCell align="center" size='small'sx={{fontSize:{xs:10,sm:16},color:'#00000'}} >{trip.returnstation}</TableCell>
+              <TableCell align="center" size='small' sx={{fontSize:{xs:10,sm:16},color:'#00000'}}>{parseInt(trip.duration/60)} min</TableCell>
+              <TableCell align="center" size='small'sx={{fontSize:{xs:10,sm:16},color:'#00000'}}>{trip.distance} m</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -86,14 +86,13 @@ export default function PaginatedTrips() {
     </TableContainer>
     <Pagination
         count={data?.lastpage}
-        color='secondary'
+        color='primary'
         className='pagination'
         page={page}
         onChange={handlePaginationChange}
         size='medium'
-        sx={{display:'flex', alignItems: 'center', justifyContent: 'center',mt:3,mb:10}}
+        sx={{display:'flex', alignItems: 'center', justifyContent: 'center',mt:3,mb:10, color:'#000000'}}
         shape="rounded"
-        variant="outlined"
       />
     </React.Fragment>
   )
