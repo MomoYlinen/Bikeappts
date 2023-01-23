@@ -13,7 +13,8 @@ import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
-import { SelectChangeEvent } from "@mui/material";
+
+
 export default function PaginatedTrips() {
     const router = useRouter();
     const [page, setPage] = useState(1);
@@ -28,8 +29,7 @@ export default function PaginatedTrips() {
   
     );
   
-    function handlePaginationChange (event: SelectChangeEvent<unknown>) {
-      const value = event.target.value as number;
+    function handlePaginationChange(e: React.ChangeEvent<HTMLInputElement>, value:number) {
       setPage(value);
       router.push(`?page=${value}`, undefined, { shallow: true });
     }
@@ -49,7 +49,8 @@ export default function PaginatedTrips() {
         color='primary'
         className='pagination'
         page={page}
-        onChange={event => handlePaginationChange(event.target as any)}
+        // @ts-ignore
+        onChange={handlePaginationChange}
         size='small'
       />
       <div style={{display:'flex',flexDirection:'row',justifyContent:'start', alignItems: 'center'}}>
@@ -78,7 +79,7 @@ export default function PaginatedTrips() {
                 {trip.departurestation}
                 </Link>
               </TableCell>
-              <TableCell align="center" size='small'sx={{fontSize:{xs:10,sm:16},color:'#00000'}} > <Link href={'/stations'+trip.returnstationID} color='secondary' underline='none'>{trip.returnstation}</Link></TableCell>
+              <TableCell align="center" size='small'sx={{fontSize:{xs:10,sm:16},color:'#00000'}} > <Link href={'/stations/'+trip.returnstationID} color='secondary' underline='none'>{trip.returnstation}</Link></TableCell>
               <TableCell align="center" size='small' sx={{fontSize:{xs:10,sm:16},color:'#00000'}}>{Number(trip.duration/60)} min</TableCell>
               <TableCell align="center" size='small'sx={{fontSize:{xs:10,sm:16},color:'#00000'}}>{trip.distance} m</TableCell>
             </TableRow>
@@ -91,7 +92,8 @@ export default function PaginatedTrips() {
         color='primary'
         className='pagination'
         page={page}
-        onChange={event => handlePaginationChange(event.target as any)}
+        // @ts-ignore
+        onChange={handlePaginationChange}
         size='medium'
         sx={{display:'flex', alignItems: 'center', justifyContent: 'center',mt:3,mb:10, color:'#000000'}}
         shape="rounded"

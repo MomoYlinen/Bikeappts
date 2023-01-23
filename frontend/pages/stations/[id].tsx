@@ -9,7 +9,7 @@ import { InferGetStaticPropsType } from 'next'
 
 
 export const getStaticPaths = async () => {
-  const res = await fetch("http://localhost:8080/stations?limit=457");
+  const res = await fetch("http://localhost:8080/stations?size=457");
   const data = await res.json();
 
   const paths = data.data.map((station: any) => {
