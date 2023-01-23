@@ -1,11 +1,14 @@
 import express, {query, Request,Response} from "express";
 import { Stations } from "../entity/Stations";
+import {Trips} from "../entity/Trips";
 import 'reflect-metadata'
 import { AppDataSource } from "../data-source";
 import OutBoundError from "../errors/OutBoundError";
+import { QueryBuilder } from "typeorm";
 const router = express.Router();
 
 const StationsDB = AppDataSource.getRepository(Stations)
+const TripsDB = AppDataSource.getRepository(Trips)
 
 router.get(
   "/",(async (req, res) => {
@@ -64,6 +67,30 @@ router.get(
         lastpage: Math.ceil(total / size)
       })
       
+    })
+  );
+
+  router.get(
+    "/details/:id",(async (req:Request, res:Response) => {
+      const builder = StationsDB.createQueryBuilder("stations").where("stations.id = :id", { id:`${req.params.id}%`})
+      const tripBuilderDP = TripsDB.createQueryBuilder("trips").where("trips.departurestationID = :id",{ id:`${req.params.id}%`})
+      const tripBuilderRT = TripsDB.createQueryBuilder("trips").where("trips.returnstationID = :id",{ id:`${req.params.id}%`})
+      const topDP =  tripBuilderDP.select("trips.returnstation").addSelect("COUNT(trips.returnstation)", "count").groupBy("trips.returnstation").orderBy("COUNT(trips.returnstation)",'DESC')
+      const topRT =  tripBuilderRT.select("trips.departurestation").addSelect("COUNT(trips.departurestation)", "count").groupBy("trips.departurestation").orderBy("COUNT(trips.departurestation)",'DESC')
+
+      if(await (await builder.getMany()).length === 0){
+        throw new OutBoundError("No stations found","name")
+      }
+        res.status(200).json(
+          {
+            details:await builder.getOne(),
+            totalTripsStarted: await tripBuilderDP.getCount(),
+            totalTripEnded: await tripBuilderRT.getCount(),
+            topDepartureStations: await topDP.limit(5).getRawMany(),
+            topReturnStations: await topRT.limit(5).getRawMany()
+          }
+
+        );
     })
   );
 
