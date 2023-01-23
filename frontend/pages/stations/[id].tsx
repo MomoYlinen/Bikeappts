@@ -6,6 +6,10 @@ import Box from "@mui/material/Box";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { InferGetStaticPropsType } from 'next'
+import InfoCard from '@/components/station/InfoCard';
+import { Details } from "@mui/icons-material";
+import TopStationsCard from '@/components/station/TopStationsCard';
+import Container from "@mui/material/Container";
 
 
 export const getStaticPaths = async () => {
@@ -28,59 +32,26 @@ const Station = ({ station }: InferGetStaticPropsType<typeof getStaticProps>) =>
   return (
     <>
       <NavBar />
-      <Grid container spacing={3} sx={{ m: 5, maxWidth:300, display:'flex', justifyContent:'center' }}>
-        <Grid container spacing={3} sx={{display:'flex'}}>
-          <Grid item sx={{display:'flex',justifyContent:'center', alignItems:'center'}}>
-            <Box sx={{ minWidth: 300}}>
-              <Card
-                variant="outlined"
-                sx={{
-                  backgroundColor: "#6E6E6E",
-                  border: 1,
-                  borderRadius: 5,
-                  boxShadow: 10,
-                  maxWidth: 350,
-                  color: "#BAFF39",
-                }}
-              >
-                <CardContent>
-                  <Typography
-                    sx={{ fontSize: 25 }}
-                    color="#BAFF39"
-                    gutterBottom
-                  >
-                    {station.name}
-                  </Typography>
-                  <Typography
-                    sx={{ fontSize: 16, fontWeight: 700 }}
-                    color="#BAFF39"
-                    gutterBottom
-                  >
-                    Osoite
-                  </Typography>
-                  <Typography sx={{ fontSize: 25 }} component="div">
-                    {station.osoite}
-                  </Typography>
-                  <Typography
-                    sx={{ fontSize: 16, fontWeight: 700 }}
-                    color="#BAFF39"
-                    gutterBottom
-                  >
-                    Kapasiteetti
-                  </Typography>
-                  <Typography
-                    sx={{ fontSize: 20 }}
-                    color="#BAFF39"
-                    gutterBottom
-                  >
-                    {station.kapasiteet}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
+     <Container maxWidth='lg' sx={{mt:5}}>
+      <Grid container >
+        <Grid container sx={{mb:10,display:'flex',alignItems:'center', justifyContent:'center'}}>
+          <Grid item >
+            <InfoCard name={station.details.name} osoite={station.details.osoite} 
+            kapasiteet={station.details.kapasiteet} totaltripsstarted={station.totalTripsStarted} 
+            totaltripsended={station.totalTripsEnded} 
+            averagedistancestart={Math.round(station.AverageDistanceStart.Start)} averagedistanceend={Math.round(station.AverageDistanceEnd.End)}/>
           </Grid>
         </Grid>
+        <Grid container spacing={10} sx={{display:'flex',alignItems:'center', justifyContent:'center'}}>
+          <Grid item md={12} lg={6} >
+            <TopStationsCard topstations={station.topDepartureStations}/>
+            </Grid>
+            <Grid item md={12} lg={6}>
+            <TopStationsCard topstations={station.topDepartureStations}/>
+            </Grid>
+        </Grid>
       </Grid>
+      </Container> 
     </>
   );
 };
@@ -88,7 +59,7 @@ const Station = ({ station }: InferGetStaticPropsType<typeof getStaticProps>) =>
 export const getStaticProps = async (context: any) => {
   const id = context.params.id;
 
-  const res = await fetch(`http://localhost:8080/stations/${id}`);
+  const res = await fetch(`http://localhost:8080/stations/details/${id}`);
   const data = await res.json();
 
   return {

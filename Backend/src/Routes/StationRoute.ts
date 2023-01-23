@@ -87,7 +87,7 @@ router.get(
           {
             details:await builder.getOne(),
             totalTripsStarted: await tripBuilderDP.getCount(),
-            totalTripEnded: await tripBuilderRT.getCount(),
+            totalTripsEnded: await tripBuilderRT.getCount(),
             AverageDistanceStart: await averageDistanceStart.getRawOne(),
             AverageDistanceEnd: await averageDistanceEnd.getRawOne(),
             topDepartureStations: await topDP.limit(5).getRawMany(),
