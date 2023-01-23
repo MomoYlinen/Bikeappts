@@ -8,7 +8,6 @@ import { Typography } from "@mui/material";
 import OutlinedCard1 from "@/components/Card1";
 import OutlinedCard2 from "@/components/Card2";
 import OutlinedCard3 from "@/components/Card3";
-import { AnimatedExample } from "@/components/FramerMotion-test";
 import { motion } from "framer-motion";
 
 const Home = () => {
