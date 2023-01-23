@@ -58,7 +58,7 @@ export default function VirtualizedList() {
             <List>
             {data?.data?.map((station:any) => (
         <ListItem  key={station.fid} component="div" disablePadding>
-        <ListItemButton>
+        <ListItemButton href={'/stations/'+station.id}>
           <ListItemText primary={`${station.nimi}, ${station.kaupunki}`} />
         </ListItemButton>
       </ListItem>
