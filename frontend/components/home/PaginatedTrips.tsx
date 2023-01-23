@@ -12,7 +12,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
+import Link from '@mui/material/Link';
+import { SelectChangeEvent } from "@mui/material";
 export default function PaginatedTrips() {
     const router = useRouter();
     const [page, setPage] = useState(1);
@@ -27,14 +28,15 @@ export default function PaginatedTrips() {
   
     );
   
-    function handlePaginationChange(e: React.ChangeEvent<HTMLInputElement>, value:number) {
+    function handlePaginationChange (event: SelectChangeEvent<unknown>) {
+      const value = event.target.value as number;
       setPage(value);
       router.push(`?page=${value}`, undefined, { shallow: true });
     }
   
     useEffect(() => {
       if (router.query.page) {
-        setPage(parseInt(router.query.page));
+        setPage(Number(router.query.page));
       }
     }, [router.query.page]);
 
@@ -47,7 +49,7 @@ export default function PaginatedTrips() {
         color='primary'
         className='pagination'
         page={page}
-        onChange={handlePaginationChange}
+        onChange={event => handlePaginationChange(event.target as any)}
         size='small'
       />
       <div style={{display:'flex',flexDirection:'row',justifyContent:'start', alignItems: 'center'}}>
@@ -72,11 +74,12 @@ export default function PaginatedTrips() {
               key={trip.departurestationID}
               sx={{boxShadowBottom:10}}
             >
-              <TableCell  align="center" size='small' sx={{fontSize:{xs:10,sm:16},color:'#00000'}}>
+              <TableCell  align="center" size='small' sx={{fontSize:{xs:10,sm:16},color:'#00000'}}><Link href={'/stations/'+trip.departurestationID} color='secondary' underline='none'>
                 {trip.departurestation}
+                </Link>
               </TableCell>
-              <TableCell align="center" size='small'sx={{fontSize:{xs:10,sm:16},color:'#00000'}} >{trip.returnstation}</TableCell>
-              <TableCell align="center" size='small' sx={{fontSize:{xs:10,sm:16},color:'#00000'}}>{parseInt(trip.duration/60)} min</TableCell>
+              <TableCell align="center" size='small'sx={{fontSize:{xs:10,sm:16},color:'#00000'}} > <Link href={'/stations'+trip.returnstationID} color='secondary' underline='none'>{trip.returnstation}</Link></TableCell>
+              <TableCell align="center" size='small' sx={{fontSize:{xs:10,sm:16},color:'#00000'}}>{Number(trip.duration/60)} min</TableCell>
               <TableCell align="center" size='small'sx={{fontSize:{xs:10,sm:16},color:'#00000'}}>{trip.distance} m</TableCell>
             </TableRow>
           ))}
@@ -88,7 +91,7 @@ export default function PaginatedTrips() {
         color='primary'
         className='pagination'
         page={page}
-        onChange={handlePaginationChange}
+        onChange={event => handlePaginationChange(event.target as any)}
         size='medium'
         sx={{display:'flex', alignItems: 'center', justifyContent: 'center',mt:3,mb:10, color:'#000000'}}
         shape="rounded"

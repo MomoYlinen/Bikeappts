@@ -10,6 +10,7 @@ import {useState, useEffect} from 'react'
 import { Pagination } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { SelectChangeEvent } from "@mui/material";
 
 
 
@@ -28,14 +29,15 @@ export default function VirtualizedList() {
   
     );
 
-    function handlePaginationChange(e: React.ChangeEvent<HTMLInputElement>, value:number) {
+    function handlePaginationChange(event: SelectChangeEvent<unknown>) {
+        const value = event.target.value as number;
         setPage(value);
         router.push(`?page=${value}`, undefined, { shallow: true });
       }
 
     useEffect(() => {
         if (router.query.page) {
-          setPage(parseInt(router.query.page));
+          setPage(Number(router.query.page));
         }
       }, [router.query.page]);
 
@@ -52,7 +54,7 @@ export default function VirtualizedList() {
         color='primary'
         className='pagination'
         page={page}
-        onChange={handlePaginationChange}
+        onChange={event => handlePaginationChange(event.target as any)}
         size='small'
       />
             <List>
@@ -69,7 +71,7 @@ export default function VirtualizedList() {
         color='primary'
         className='pagination'
         page={page}
-        onChange={handlePaginationChange}
+        onChange={event => handlePaginationChange(event.target as any)}
         size='small'
       />
         </Box>
