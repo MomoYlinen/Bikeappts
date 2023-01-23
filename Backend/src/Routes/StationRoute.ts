@@ -77,6 +77,8 @@ router.get(
       const tripBuilderRT = TripsDB.createQueryBuilder("trips").where("trips.returnstationID = :id",{ id:`${req.params.id}%`})
       const topDP =  tripBuilderDP.select("trips.returnstation").addSelect("COUNT(trips.returnstation)", "count").groupBy("trips.returnstation").orderBy("COUNT(trips.returnstation)",'DESC')
       const topRT =  tripBuilderRT.select("trips.departurestation").addSelect("COUNT(trips.departurestation)", "count").groupBy("trips.departurestation").orderBy("COUNT(trips.departurestation)",'DESC')
+      const averageDistanceStart = TripsDB.createQueryBuilder("trips").select("AVG(trips.distance)", 'Start').where("trips.departurestationID = :id",{ id:`${req.params.id}%`})
+      const averageDistanceEnd = TripsDB.createQueryBuilder("trips").select("AVG(trips.distance)",'End').where("trips.returnstationID = :id",{ id:`${req.params.id}%`})
 
       if(await (await builder.getMany()).length === 0){
         throw new OutBoundError("No stations found","name")
@@ -86,9 +88,12 @@ router.get(
             details:await builder.getOne(),
             totalTripsStarted: await tripBuilderDP.getCount(),
             totalTripEnded: await tripBuilderRT.getCount(),
+            AverageDistanceStart: await averageDistanceStart.getRawOne(),
+            AverageDistanceEnd: await averageDistanceEnd.getRawOne(),
             topDepartureStations: await topDP.limit(5).getRawMany(),
-            topReturnStations: await topRT.limit(5).getRawMany()
+            topReturnStations: await topRT.limit(5).getRawMany(),
           }
+
 
         );
     })
