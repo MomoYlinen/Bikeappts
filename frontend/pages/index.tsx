@@ -3,11 +3,11 @@ import NavBar from "../components/NavBar";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import PaginatedTrips from "@/components/PaginatedTrips";
+import PaginatedTrips from "@/components/home/PaginatedTrips";
 import { Typography } from "@mui/material";
-import OutlinedCard1 from "@/components/Card1";
-import OutlinedCard2 from "@/components/Card2";
-import OutlinedCard3 from "@/components/Card3";
+import OutlinedCard1 from "@/components/home/Card1";
+import OutlinedCard2 from "@/components/home/Card2";
+import OutlinedCard3 from "@/components/home/Card3";
 import { motion } from "framer-motion";
 
 const Home = () => {
