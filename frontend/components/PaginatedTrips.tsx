@@ -12,7 +12,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { maxWidth } from '@mui/system';
 
 export default function PaginatedTrips() {
     const router = useRouter();
