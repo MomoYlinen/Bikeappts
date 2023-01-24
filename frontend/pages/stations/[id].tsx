@@ -37,7 +37,7 @@ const Station = ({
               mb: 10,
               display: "flex",
               alignItems: "center",
-              justifyContent: { xs: "center", md: "start" },
+              justifyContent: { xs: "center", sm: "center", md: "start" },
             }}
           >
             <Grid item>
@@ -60,12 +60,16 @@ const Station = ({
           </Grid>
           <Grid
             container
-            columnGap={6}
-            rowGap={4}
+            columnGap={4}
+            rowGap={5}
             sx={{
               display: "flex",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: {
+                xs: "start",
+                md: "center",
+                lg: "space-between",
+              },
             }}
           >
             <Grid>

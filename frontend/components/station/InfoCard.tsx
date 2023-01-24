@@ -80,7 +80,7 @@ export default function OutlinedCard(props: any) {
               flexDirection: "row",
               justifyContent: "space-between",
               mb: 2,
-              mr: { xs: 10, sm: 12 },
+              mr: { xs: 8, sm: 12 },
             }}
           >
             <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#BAFF39">
@@ -131,7 +131,7 @@ export default function OutlinedCard(props: any) {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
-              mr: { xs: 10, sm: 12 },
+              mr: { xs: 8, sm: 12 },
             }}
           >
             <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#BAFF39">
