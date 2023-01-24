@@ -80,7 +80,7 @@ export default function PaginatedTrips() {
                 </Link>
               </TableCell>
               <TableCell align="center" size='small'sx={{fontSize:{xs:10,sm:16},color:'#00000'}} > <Link href={'/stations/'+trip.returnstationID} color='secondary' underline='none'>{trip.returnstation}</Link></TableCell>
-              <TableCell align="center" size='small' sx={{fontSize:{xs:10,sm:16},color:'#00000'}}>{Number(trip.duration/60)} min</TableCell>
+              <TableCell align="center" size='small' sx={{fontSize:{xs:10,sm:16},color:'#00000'}}>{Math.round(trip.duration/60)} min</TableCell>
               <TableCell align="center" size='small'sx={{fontSize:{xs:10,sm:16},color:'#00000'}}>{trip.distance} m</TableCell>
             </TableRow>
           ))}

@@ -5,10 +5,15 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect } from "react";
+import { createTheme} from '@mui/material/styles';
 
 
 
 export default function OutlinedCard() {
+
+  const theme = createTheme({
+
+  })
 
   const count = useMotionValue(0);
   const rounded = useTransform(count, Math.round);
