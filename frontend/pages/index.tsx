@@ -16,12 +16,14 @@ const Home = () => {
       <HomeMessage/>
       <Grid
         container
-        spacing={{ xs: 4, sm: 12 }}
-        sx={{ justifyContent: "center", pl: 6, pr: 6, mb:20 }}
+        maxWidth='xl'
+        columnGap={4}
+        rowGap={6}
+        sx={{ justifyContent:'center',alignItems:'center', pl: 6, pr: 6, mb:20 }}
       >
         <motion.div
-          initial={{ opacity: 0, y: -200 }}
-          animate={{ opacity: 1, y: [100,50,100] }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: [100,150,100] }}
           transition={{
             type: "spring",
             stiffness: 200,
@@ -35,13 +37,13 @@ const Home = () => {
           </Grid>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: -200 }}
-          animate={{ opacity: 1, y: [100,50,100] }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: [100,150,100] }}
           transition={{
             type: "spring",
             stiffness: 200,
             damping: 20,
-            delay: 1.6,
+            delay: 2,
             duration: 1.5,
           }}
         >
@@ -50,13 +52,13 @@ const Home = () => {
           </Grid>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: -200 }}
-          animate={{ opacity: 1, y: [100,50,100] }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: [100,150,100] }}
           transition={{
             type: "spring",
             stiffness: 400,
             damping: 20,
-            delay: 2,
+            delay: 3,
             duration:1.5
           }}
         >
