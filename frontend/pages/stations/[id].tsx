@@ -73,10 +73,16 @@ const Station = ({
             }}
           >
             <Grid>
-              <TopStationsCard topstations={station.topDepartureStations} />
+              <TopStationsCard
+                topstations={station.topDepartureStations}
+                title={"Top 5 Destinations"}
+              />
             </Grid>
             <Grid>
-              <TopStationsCard topstations={station.topDepartureStations} />
+              <TopStationsCard
+                topstations={station.topReturnStations}
+                title={"Top 5 Start Stations"}
+              />
             </Grid>
           </Grid>
         </Grid>

@@ -26,7 +26,7 @@ export default function OutlinedCard(props: any) {
             color="#BAFF39"
             gutterBottom
           >
-            Top 5 Destinations
+            {props.title}
           </Typography>
           {topstations?.map((top: any) => (
             <Box
@@ -36,13 +36,14 @@ export default function OutlinedCard(props: any) {
                 justifyContent: "space-between",
                 mr: { xs: 10, sm: 12 },
               }}
+              key={top.count}
             >
               <Typography
                 sx={{ fontSize: 24, fontWeight: 300 }}
                 color="#BAFF39"
                 gutterBottom
               >
-                {top.trips_returnstation}
+                {top.name}
               </Typography>
               <Typography
                 sx={{ fontSize: 24, fontWeight: 300 }}
