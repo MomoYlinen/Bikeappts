@@ -27,7 +27,7 @@ const HomeMessage = () => {
         >
           <Typography
             variant="h1"
-            color="#000000"
+            color="#ffffff"
             sx={{ fontSize: { xs: 35, sm: 70 }, fontWeight: 700 }}
           >
             Welcome to Bike App
@@ -45,7 +45,7 @@ const HomeMessage = () => {
         >
           <Typography
             variant="h6"
-            color="#000000"
+            color="#ffffff"
             sx={{ fontSize: { xs: 20, sm: 50 } }}
           >
             In this app you can look data from 2021{" "}
