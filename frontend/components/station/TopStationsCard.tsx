@@ -21,7 +21,11 @@ export default function OutlinedCard(props: any) {
         }}
       >
         <CardContent>
-          <Typography sx={{ fontSize: 35 }} color="#BAFF39" gutterBottom>
+          <Typography
+            sx={{ fontSize: 35, borderBottom: 2, mb: 2 }}
+            color="#BAFF39"
+            gutterBottom
+          >
             Top 5 Destinations
           </Typography>
           {topstations?.map((top: any) => (

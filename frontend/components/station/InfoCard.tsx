@@ -61,7 +61,7 @@ export default function OutlinedCard(props: any) {
             }}
           >
             <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#BAFF39">
-              Total Trips
+              Trips Started
             </Typography>
             <Typography
               sx={{
@@ -113,7 +113,7 @@ export default function OutlinedCard(props: any) {
             }}
           >
             <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#BAFF39">
-              Total Trips
+              Trips Ended
             </Typography>
             <Typography
               sx={{
