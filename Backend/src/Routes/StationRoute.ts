@@ -75,8 +75,16 @@ router.get(
       const builder = StationsDB.createQueryBuilder("stations").where("stations.id = :id", { id:`${req.params.id}%`})
       const tripBuilderDP = TripsDB.createQueryBuilder("trips").where("trips.departurestationID = :id",{ id:`${req.params.id}%`})
       const tripBuilderRT = TripsDB.createQueryBuilder("trips").where("trips.returnstationID = :id",{ id:`${req.params.id}%`})
-      const topDP =  tripBuilderDP.select("trips.returnstation").addSelect("COUNT(trips.returnstation)", "count").groupBy("trips.returnstation").orderBy("COUNT(trips.returnstation)",'DESC')
-      const topRT =  tripBuilderRT.select("trips.departurestation").addSelect("COUNT(trips.departurestation)", "count").groupBy("trips.departurestation").orderBy("COUNT(trips.departurestation)",'DESC')
+      const topDP = tripBuilderDP
+        .select("trips.returnstation", "name")
+        .addSelect("COUNT(trips.returnstation)", "count")
+        .groupBy("trips.returnstation")
+        .orderBy("COUNT(trips.returnstation)", "DESC");
+      const topRT = tripBuilderRT
+        .select("trips.departurestation", "name")
+        .addSelect("COUNT(trips.departurestation)", "count")
+        .groupBy("trips.departurestation")
+        .orderBy("COUNT(trips.departurestation)", "DESC");
       const averageDistanceStart = TripsDB.createQueryBuilder("trips").select("AVG(trips.distance)", 'Start').where("trips.departurestationID = :id",{ id:`${req.params.id}%`})
       const averageDistanceEnd = TripsDB.createQueryBuilder("trips").select("AVG(trips.distance)",'End').where("trips.returnstationID = :id",{ id:`${req.params.id}%`})
 
