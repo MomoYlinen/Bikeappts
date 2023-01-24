@@ -11,7 +11,7 @@ import { Pagination } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-export default function VirtualizedList() {
+export default function PaginatedStations() {
   const router = useRouter();
   const [page, setPage] = useState(1);
   const { data } = useQuery(
