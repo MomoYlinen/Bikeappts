@@ -5,15 +5,11 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect } from "react";
-import { createTheme} from '@mui/material/styles';
 
 
 
 export default function OutlinedCard() {
 
-  const theme = createTheme({
-
-  })
 
   const count = useMotionValue(0);
   const rounded = useTransform(count, Math.round);
@@ -30,7 +26,7 @@ export default function OutlinedCard() {
     <Box sx={{ minWidth: 275 }}>
       <Card variant="outlined" sx={{backgroundColor:'#6E6E6E', border:1, borderRadius:5, boxShadow:10, maxWidth:350,color:'#BAFF39'}} >
       <CardContent>
-      <Typography sx={{ fontSize: 20 }} color='#BAFF39' gutterBottom>
+      <Typography sx={{ fontSize: 20 }} color='primary' gutterBottom>
         Total trips
       </Typography>
       <Typography variant="h4" component="div">
@@ -45,7 +41,7 @@ export default function OutlinedCard() {
           }}
           >{rounded}</motion.div>
       </Typography>
-      <Typography sx={{ fontSize: 16 }} color='#BAFF39' gutterBottom>
+      <Typography sx={{ fontSize: 16 }} color='primary' gutterBottom>
         Between May - July 2021
       </Typography>
       <Typography variant="h4" component="div">
