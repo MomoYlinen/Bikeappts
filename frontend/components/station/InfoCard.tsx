@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import { CardMedia } from "@mui/material";
 
 export default function OutlinedCard(props: any) {
   return (
@@ -19,14 +20,29 @@ export default function OutlinedCard(props: any) {
         }}
       >
         <CardContent>
-          <Typography
-            sx={{ fontSize: 30, fontWeight: 500 }}
-            color="#BAFF39"
-            gutterBottom
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
           >
-            Osoite
-          </Typography>
-          <Typography sx={{ fontSize: 30, fontWeight: 300, mb: 5 }}>
+            <Typography
+              sx={{ fontSize: 32, fontWeight: 500 }}
+              color="#BAFF39"
+              gutterBottom
+            >
+              Osoite
+            </Typography>
+            <CardMedia
+              component="img"
+              image="/BikeSvg.svg"
+              sx={{ width: 65, height: 65 }}
+            />
+          </Box>
+          <Typography
+            sx={{ fontSize: 30, fontWeight: 300, mb: 3, borderBottom: 2 }}
+          >
             {props.osoite}
           </Typography>
           <Typography
