@@ -33,7 +33,7 @@ const Station = ({
   return (
     <>
       <NavBar />
-      <Container maxWidth="lg" sx={{ mt: 5 }}>
+      <Container maxWidth="lg" sx={{ mt: 2 }}>
         <Grid container>
           <Grid
             container
@@ -41,10 +41,15 @@ const Station = ({
               mb: 10,
               display: "flex",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: { xs: "center", md: "start" },
             }}
           >
             <Grid item>
+              <Typography
+                sx={{ fontSize: { xs: 46, sm: 70 }, fontWeight: 500, mb: 2 }}
+              >
+                {station.details.nimi}
+              </Typography>
               <InfoCard
                 name={station.details.name}
                 osoite={station.details.osoite}
@@ -60,17 +65,18 @@ const Station = ({
           </Grid>
           <Grid
             container
-            spacing={10}
+            columnGap={6}
+            rowGap={4}
             sx={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <Grid item md={12} lg={6}>
+            <Grid>
               <TopStationsCard topstations={station.topDepartureStations} />
             </Grid>
-            <Grid item md={12} lg={6}>
+            <Grid>
               <TopStationsCard topstations={station.topDepartureStations} />
             </Grid>
           </Grid>

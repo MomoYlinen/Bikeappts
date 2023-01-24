@@ -8,84 +8,129 @@ export default function OutlinedCard(props: any) {
   return (
     <Box sx={{ maxWidth: { xs: 300, sm: 400 } }}>
       <Card
-        variant="outlined"
+        variant="elevation"
         sx={{
           backgroundColor: "#6E6E6E",
           border: 1,
-          borderRadius: 5,
+          borderRadius: 2,
           boxShadow: 10,
-          maxWidth: 350,
           color: "#BAFF39",
+          minWidth: { xs: 350, sm: 400 },
         }}
       >
         <CardContent>
           <Typography
-            sx={{ fontSize: 35, fontWeight: 700 }}
-            color="#BAFF39"
-            gutterBottom
-          >
-            {props.name}
-          </Typography>
-          <Typography
-            sx={{ fontSize: 16, fontWeight: 700 }}
+            sx={{ fontSize: 30, fontWeight: 500 }}
             color="#BAFF39"
             gutterBottom
           >
             Osoite
           </Typography>
-          <Typography sx={{ fontSize: 25 }} component="div">
+          <Typography sx={{ fontSize: 30, fontWeight: 300, mb: 5 }}>
             {props.osoite}
           </Typography>
           <Typography
-            sx={{ fontSize: 16, fontWeight: 700 }}
+            sx={{ fontSize: 20, fontWeight: 500, mb: 2 }}
             color="#BAFF39"
-            gutterBottom
           >
-            Kapasiteetti
+            {`Journeys that started from ${props.name}`}
           </Typography>
-          <Typography sx={{ fontSize: 20 }} color="#BAFF39" gutterBottom>
-            {props.kapasiteet}
-          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              mb: 2,
+              mr: { xs: 10, sm: 15 },
+            }}
+          >
+            <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#BAFF39">
+              Total Trips
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: 24,
+                fontWeight: 300,
+                mb: 2,
+              }}
+              color="#BAFF39"
+            >
+              {props.totaltripsstarted}
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              mb: 2,
+              mr: { xs: 10, sm: 12 },
+            }}
+          >
+            <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#BAFF39">
+              AVG Distance
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: 24,
+                fontWeight: 300,
+                mb: 2,
+              }}
+              color="#BAFF39"
+            >
+              {`${props.averagedistancestart} m`}
+            </Typography>
+          </Box>
           <Typography
-            sx={{ fontSize: 16, fontWeight: 700 }}
+            sx={{ fontSize: 20, fontWeight: 500, mb: 2 }}
             color="#BAFF39"
-            gutterBottom
           >
-            Total number of journeys starting from the props
+            {`Journeys that ended to ${props.name}`}
           </Typography>
-          <Typography sx={{ fontSize: 20 }} color="#BAFF39" gutterBottom>
-            {props.totaltripsstarted}
-          </Typography>
-          <Typography
-            sx={{ fontSize: 16, fontWeight: 700 }}
-            color="#BAFF39"
-            gutterBottom
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              mb: 2,
+              mr: { xs: 10, sm: 15 },
+            }}
           >
-            Total number of journeys starting from the props
-          </Typography>
-          <Typography sx={{ fontSize: 20 }} color="#BAFF39" gutterBottom>
-            {props.totaltripsended}
-          </Typography>
-          <Typography
-            sx={{ fontSize: 16, fontWeight: 700 }}
-            color="#BAFF39"
-            gutterBottom
+            <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#BAFF39">
+              Total Trips
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: 24,
+                fontWeight: 300,
+                mb: 2,
+              }}
+              color="#BAFF39"
+            >
+              {props.totaltripsended}
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              mr: { xs: 10, sm: 12 },
+            }}
           >
-            The average distance of a journey starting from the props
-          </Typography>
-          <Typography sx={{ fontSize: 20 }} color="#BAFF39" gutterBottom>
-            {props.averagedistancestart} m
-          </Typography>
-          <Typography
-            sx={{ fontSize: 16, fontWeight: 700 }}
-            color="#BAFF39"
-            gutterBottom
-          >
-            The average distance of a journey ending at the props
-          </Typography>
-          <Typography sx={{ fontSize: 20 }} color="#BAFF39" gutterBottom>
-            {props.averagedistanceend} m
-          </Typography>
+            <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#BAFF39">
+              AVG Distance
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: 24,
+                fontWeight: 300,
+              }}
+              color="#BAFF39"
+            >
+              {`${props.averagedistanceend} m`}
+            </Typography>
+          </Box>
         </CardContent>
       </Card>
     </Box>
