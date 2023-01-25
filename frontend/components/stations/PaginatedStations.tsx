@@ -10,20 +10,30 @@ import { useState, useEffect } from "react";
 import { Pagination } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 export default function PaginatedStations() {
   const router = useRouter();
   const [page, setPage] = useState(1);
+  const [search, setSearch] = useState("");
   const { data } = useQuery(
-    ["stations", page],
+    ["stations", page, search],
     async () =>
-      await fetch(`http://localhost:8080/stations?page=${page}`).then(
-        (results) => results.json()
-      ),
+      await fetch(
+        `http://localhost:8080/stations?name=${search}&page=${page}`
+      ).then((results) => results.json()),
     {
       keepPreviousData: true,
     }
   );
+
+  function handleTextFieldChange(
+    e: React.ChangeEvent<HTMLInputElement>,
+    value: any
+  ) {
+    setSearch(e.target.value);
+    console.log(search);
+  }
 
   function handlePaginationChange(
     e: React.ChangeEvent<HTMLInputElement>,
@@ -37,7 +47,10 @@ export default function PaginatedStations() {
     if (router.query.page) {
       setPage(Number(router.query.page));
     }
-  }, [router.query.page]);
+    if (router.query.name) {
+      setSearch(router.query.search as string);
+    }
+  }, [router.query.page, router.query.search]);
 
   return (
     <React.Fragment>
@@ -57,11 +70,11 @@ export default function PaginatedStations() {
           size="small"
           variant="outlined"
           color="primary"
+          // @ts-ignore
+          onChange={handleTextFieldChange}
+          value={search}
           sx={{ mr: 2, width: "90%", background: "#ffffff", border: 1 }}
         />
-        <Button variant="contained" color="primary" size="small">
-          Search
-        </Button>
       </Box>
       <Box sx={{ width: "100%", maxWidth: 320, mt: 2, ml: 2, mb: 5 }}>
         <Pagination
@@ -73,17 +86,31 @@ export default function PaginatedStations() {
           onChange={handlePaginationChange}
           size="small"
         />
-        <List>
-          {data?.data?.map((station: any) => (
-            <ListItem key={station.fid} component="div" disablePadding>
-              <ListItemButton href={"/stations/" + station.id}>
-                <ListItemText
-                  primary={`${station.nimi}, ${station.kaupunki}`}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+        {data?.total > 0 ? (
+          <List>
+            {data?.data?.map((station: any) => (
+              <ListItem key={station.fid} component="div" disablePadding>
+                <ListItemButton href={"/stations/" + station.id}>
+                  <ListItemText
+                    primary={`${station.nimi}, ${station.kaupunki}`}
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        ) : (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              mt: 5,
+              mb: 5,
+            }}
+          >
+            <Typography variant="h4">Station not found!</Typography>
+          </Box>
+        )}
         <Pagination
           count={data?.lastpage}
           color="primary"
