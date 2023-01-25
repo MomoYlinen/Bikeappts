@@ -17,7 +17,7 @@ export default function OutlinedCard() {
   }, []);
 
   return (
-    <Box sx={{ minWidth: 275 }}>
+    <Box sx={{ minWidth: 200 }}>
       <Card
         variant="outlined"
         sx={{
@@ -57,7 +57,7 @@ export default function OutlinedCard() {
                 type: "spring",
                 stiffness: 400,
                 damping: 20,
-                delay: 1.6,
+                delay: 1.1,
               }}
             >
               {rounded}
