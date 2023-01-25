@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { Pagination } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 export default function PaginatedStations() {
@@ -32,7 +31,6 @@ export default function PaginatedStations() {
     value: any
   ) {
     setSearch(e.target.value);
-    console.log(search);
   }
 
   function handlePaginationChange(
@@ -62,6 +60,7 @@ export default function PaginatedStations() {
           alignItems: "center",
           pl: { xs: 2, sm: 25, md: 60, lg: 100 },
           mr: 5,
+          mt: 2,
         }}
       >
         <TextField
@@ -77,15 +76,6 @@ export default function PaginatedStations() {
         />
       </Box>
       <Box sx={{ width: "100%", maxWidth: 320, mt: 2, ml: 2, mb: 5 }}>
-        <Pagination
-          count={data?.lastpage}
-          color="primary"
-          className="pagination"
-          page={page}
-          // @ts-ignore
-          onChange={handlePaginationChange}
-          size="small"
-        />
         {data?.total > 0 ? (
           <List>
             {data?.data?.map((station: any) => (
