@@ -10,7 +10,7 @@ const Stations = () => {
       <Typography
         variant="h3"
         component="h2"
-        sx={{ mt: 5, ml: 2, fontWeight: 700 }}
+        sx={{ mt: 5, ml: 10, fontWeight: 700 }}
       >
         Stationlist
       </Typography>

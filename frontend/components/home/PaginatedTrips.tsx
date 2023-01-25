@@ -177,72 +177,58 @@ export default function PaginatedTrips() {
               </TableCell>
             </TableRow>
           </TableHead>
-          {data?.total > 0 ? (
-            <TableBody sx={{ backgroundColor: "#ded9d9" }}>
-              {data?.data?.map((trip: any) => (
-                <TableRow
-                  hover
-                  role="checkbox"
-                  key={trip.departurestationID}
-                  sx={{ boxShadowBottom: 10 }}
+          <TableBody sx={{ backgroundColor: "#ded9d9" }}>
+            {data?.data?.map((trip: any) => (
+              <TableRow
+                hover
+                role="checkbox"
+                key={trip.departurestationID}
+                sx={{ boxShadowBottom: 10 }}
+              >
+                <TableCell
+                  align="center"
+                  size="small"
+                  sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
                 >
-                  <TableCell
-                    align="center"
-                    size="small"
-                    sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
+                  <Link
+                    href={"/stations/" + trip.departurestationID}
+                    color="secondary"
+                    underline="none"
                   >
-                    <Link
-                      href={"/stations/" + trip.departurestationID}
-                      color="secondary"
-                      underline="none"
-                    >
-                      {trip.departurestation}
-                    </Link>
-                  </TableCell>
-                  <TableCell
-                    align="center"
-                    size="small"
-                    sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
+                    {trip.departurestation}
+                  </Link>
+                </TableCell>
+                <TableCell
+                  align="center"
+                  size="small"
+                  sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
+                >
+                  {" "}
+                  <Link
+                    href={"/stations/" + trip.returnstationID}
+                    color="secondary"
+                    underline="none"
                   >
-                    {" "}
-                    <Link
-                      href={"/stations/" + trip.returnstationID}
-                      color="secondary"
-                      underline="none"
-                    >
-                      {trip.returnstation}
-                    </Link>
-                  </TableCell>
-                  <TableCell
-                    align="center"
-                    size="small"
-                    sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
-                  >
-                    {Math.round(trip.duration / 60)} min
-                  </TableCell>
-                  <TableCell
-                    align="center"
-                    size="small"
-                    sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
-                  >
-                    {trip.distance} m
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          ) : (
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                mt: 5,
-                mb: 5,
-              }}
-            >
-              <Typography variant="h6">{`No stations with name: ${search}`}</Typography>
-            </Box>
-          )}
+                    {trip.returnstation}
+                  </Link>
+                </TableCell>
+                <TableCell
+                  align="center"
+                  size="small"
+                  sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
+                >
+                  {Math.round(trip.duration / 60)} min
+                </TableCell>
+                <TableCell
+                  align="center"
+                  size="small"
+                  sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
+                >
+                  {trip.distance} m
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
         </Table>
       </TableContainer>
       <Pagination

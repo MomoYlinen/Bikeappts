@@ -55,12 +55,12 @@ export default function PaginatedStations() {
       <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
-          justifyContent: "start",
+          justifyContent: "center",
           alignItems: "center",
-          pl: { xs: 2, sm: 25, md: 60, lg: 100 },
           mr: 5,
           mt: 2,
+          maxWidth: 500,
+          ml: 50,
         }}
       >
         <TextField
@@ -72,10 +72,10 @@ export default function PaginatedStations() {
           // @ts-ignore
           onChange={handleTextFieldChange}
           value={search}
-          sx={{ mr: 2, width: "90%", background: "#ffffff", border: 1 }}
+          sx={{ width: "90%", background: "#ffffff", border: 1 }}
         />
       </Box>
-      <Box sx={{ width: "100%", maxWidth: 320, mt: 2, ml: 2, mb: 5 }}>
+      <Box sx={{ width: "100%", maxWidth: 320, mt: 2, ml: 10, mb: 5 }}>
         {data?.total > 0 ? (
           <List>
             {data?.data?.map((station: any) => (
