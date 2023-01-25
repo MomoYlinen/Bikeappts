@@ -8,7 +8,7 @@ export default function OutlinedCard(props: any) {
   const topstations = props.topstations;
 
   return (
-    <Box sx={{ maxWidth: { xs: 300, sm: 450, md: 700, lg: 550 }, mb: 5 }}>
+    <Box sx={{ maxWidth: { xs: 320, sm: 500, md: 400, lg: 550 }, mb: 5 }}>
       <Card
         variant="outlined"
         sx={{
@@ -17,7 +17,7 @@ export default function OutlinedCard(props: any) {
           borderRadius: 3,
           boxShadow: 10,
           color: "#BAFF39",
-          minWidth: { xs: 350, sm: 400, md: 700, lg: 550 },
+          minWidth: { xs: 320, sm: 500, md: 400, lg: 550 },
         }}
       >
         <CardContent>

@@ -7,7 +7,7 @@ import { CardMedia } from "@mui/material";
 
 export default function OutlinedCard(props: any) {
   return (
-    <Box sx={{ maxWidth: { xs: 300, sm: 400 } }}>
+    <Box sx={{ maxWidth: { xs: 300, sm: 380, md: 380, lg: 450 } }}>
       <Card
         variant="elevation"
         sx={{
@@ -16,7 +16,7 @@ export default function OutlinedCard(props: any) {
           borderRadius: 2,
           boxShadow: 10,
           color: "#BAFF39",
-          minWidth: { xs: 350, sm: 400 },
+          minWidth: { xs: 350, sm: 380, md: 380, lg: 450 },
         }}
       >
         <CardContent>
