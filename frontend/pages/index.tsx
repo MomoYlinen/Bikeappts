@@ -21,72 +21,85 @@ const Home = () => {
         image="/kaupunkipyorat.jpeg"
         sx={{
           backgroundSize: "cover",
-          height: { xs: "80vh", md: "80vh" },
+          height: { xs: "85vh", sm: "93vh", md: "91vh", xl: "91vh" },
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          mb: { xs: 40, sm: 40, md: 20, xl: 0 },
+          mb: { xs: 20, sm: 0, md: 0, lg: 0 },
         }}
       >
-        <HomeMessage />
         <Grid
           container
+          spacing={2}
           maxWidth="xl"
-          columnGap={20}
-          rowGap={6}
           sx={{
             justifyContent: "center",
-            alignItems: "center",
-            pl: 6,
-            pr: 6,
+            display: "flex",
+            mt: { xs: 2, sm: 2 },
           }}
         >
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: [100, 150, 100] }}
-            transition={{
-              type: "spring",
-              stiffness: 200,
-              damping: 20,
-              delay: 1,
-              duration: 1.5,
-            }}
-          >
-            <Grid item xs={12} sm={4} lg={4}>
-              <OutlinedCard1 />
+          <Grid item>
+            <HomeMessage />
+          </Grid>
+          <Grid item sx={{ justifyContent: "center" }}>
+            <Grid
+              container
+              maxWidth="xl"
+              columnGap={3}
+              rowGap={6}
+              sx={{
+                justifyContent: {
+                  xs: "center",
+                  sm: "center",
+                },
+                alignItems: "center",
+              }}
+            >
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 600,
+                  damping: 20,
+                  delay: 1,
+                  duration: 2,
+                }}
+              >
+                <Grid item>
+                  <OutlinedCard2 />
+                </Grid>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 600,
+                  damping: 20,
+                  delay: 2,
+                  duration: 2,
+                }}
+              >
+                <Grid item>
+                  <OutlinedCard1 />
+                </Grid>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 600,
+                  damping: 20,
+                  delay: 3,
+                  duration: 2,
+                }}
+              >
+                <Grid item>
+                  <OutlinedCard3 />
+                </Grid>
+              </motion.div>
             </Grid>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: [100, 150, 100] }}
-            transition={{
-              type: "spring",
-              stiffness: 200,
-              damping: 20,
-              delay: 2,
-              duration: 1.5,
-            }}
-          >
-            <Grid item xs={12} sm={4} lg={4}>
-              <OutlinedCard2 />
-            </Grid>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: [100, 150, 100] }}
-            transition={{
-              type: "spring",
-              stiffness: 400,
-              damping: 20,
-              delay: 3,
-              duration: 1.5,
-            }}
-          >
-            <Grid item xs={12} sm={4} lg={4}>
-              <OutlinedCard3 />
-            </Grid>
-          </motion.div>
+          </Grid>
         </Grid>
       </CardMedia>
       <Container>

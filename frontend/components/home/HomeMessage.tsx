@@ -8,12 +8,7 @@ const HomeMessage = () => {
     <>
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
           alignItems: "center",
-          mt: 5,
-          mb: 1,
         }}
       >
         <motion.div
@@ -28,7 +23,10 @@ const HomeMessage = () => {
           <Typography
             variant="h1"
             color="#ffffff"
-            sx={{ fontSize: { xs: 35, sm: 70 }, fontWeight: 700 }}
+            sx={{
+              fontSize: { xs: 35, sm: 55, md: 60, lg: 70 },
+              fontWeight: 700,
+            }}
           >
             Welcome to Bike App
           </Typography>
@@ -46,7 +44,7 @@ const HomeMessage = () => {
           <Typography
             variant="h6"
             color="#ffffff"
-            sx={{ fontSize: { xs: 20, sm: 50 } }}
+            sx={{ fontSize: { xs: 20, sm: 35, md: 40, lg: 55 } }}
           >
             In this app you can look data from 2021{" "}
           </Typography>

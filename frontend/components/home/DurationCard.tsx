@@ -23,17 +23,33 @@ export default function OutlinedCard() {
         sx={{
           backgroundColor: "#6E6E6E",
           border: 1,
-          borderRadius: 5,
+          borderRadius: 3,
           boxShadow: 10,
-          maxWidth: 350,
           color: "#BAFF39",
+          width: { xs: 300, sm: 200, md: 300, lg: 350 },
+          height: { xs: 150, sm: 120, md: 170, lg: 200 },
+          display: "flex",
+          justifyContent: "center",
         }}
       >
         <CardContent>
-          <Typography sx={{ fontSize: 18 }} color="#BAFF39" gutterBottom>
-            Combined time spend cycling
+          <Typography
+            sx={{
+              fontSize: { xs: 16, sm: 12, md: 20, lg: 22 },
+              fontWeight: 500,
+            }}
+            color="#BAFF39"
+          >
+            Total time (Min)
           </Typography>
-          <Typography variant="h4" component="div">
+          <Typography
+            sx={{
+              fontSize: { xs: 16, sm: 12, md: 20, lg: 24 },
+              fontWeight: 300,
+            }}
+            gutterBottom
+            component="div"
+          >
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -47,10 +63,22 @@ export default function OutlinedCard() {
               {rounded}
             </motion.div>
           </Typography>
-          <Typography sx={{ fontSize: 16 }} color="#BAFF39" gutterBottom>
-            Average lenght of trip
+          <Typography
+            sx={{
+              fontSize: { xs: 16, sm: 12, md: 20, lg: 22 },
+              fontWeight: 500,
+            }}
+            color="#BAFF39"
+          >
+            AVG lenght of trip
           </Typography>
-          <Typography variant="h4" component="div">
+          <Typography
+            sx={{
+              fontSize: { xs: 16, sm: 12, md: 20, lg: 30 },
+              fontWeight: 300,
+            }}
+            component="div"
+          >
             18 min
           </Typography>
         </CardContent>

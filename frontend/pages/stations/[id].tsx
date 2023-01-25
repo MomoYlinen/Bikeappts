@@ -29,15 +29,15 @@ const Station = ({
   return (
     <>
       <NavBar />
-      <Container maxWidth="lg" sx={{ mt: 2 }}>
-        <Grid container>
+      <Container maxWidth="xl" sx={{ mt: 2 }}>
+        <Grid maxWidth="lg">
           <Grid
             container
             sx={{
               mb: 10,
               display: "flex",
               alignItems: "center",
-              justifyContent: { xs: "center", sm: "center", md: "start" },
+              justifyContent: { xs: "start", sm: "center", md: "center" },
             }}
           >
             <Grid item>
@@ -62,13 +62,14 @@ const Station = ({
             container
             columnGap={4}
             rowGap={5}
+            maxWidth="xl"
             sx={{
               display: "flex",
               alignItems: "center",
               justifyContent: {
                 xs: "start",
                 md: "center",
-                lg: "space-between",
+                lg: "space-evenly",
               },
             }}
           >

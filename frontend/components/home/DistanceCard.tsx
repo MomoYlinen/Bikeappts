@@ -23,20 +23,32 @@ export default function OutlinedCard() {
         sx={{
           backgroundColor: "#6E6E6E",
           border: 1,
-          borderRadius: 5,
+          borderRadius: 3,
           boxShadow: 10,
-          maxWidth: 350,
           color: "#BAFF39",
+          width: { xs: 300, sm: 200, md: 300, lg: 350 },
+          height: { xs: 150, sm: 120, md: 170, lg: 200 },
+          display: "flex",
+          justifyContent: "center",
         }}
       >
         <CardContent>
-          <Typography sx={{ fontSize: 20 }} color="#BAFF39" gutterBottom>
-            Kilometers traveled
+          <Typography
+            sx={{
+              fontSize: { xs: 16, sm: 12, md: 20, lg: 22 },
+              fontWeight: 500,
+            }}
+            color="#BAFF39"
+          >
+            Total distance (Km)
           </Typography>
           <Typography
-            variant="h4"
+            sx={{
+              fontSize: { xs: 16, sm: 12, md: 20, lg: 24 },
+              fontWeight: 300,
+            }}
+            gutterBottom
             component="div"
-            sx={{ display: "flex", flexDirection: "column" }}
           >
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
@@ -51,10 +63,22 @@ export default function OutlinedCard() {
               {rounded}
             </motion.div>
           </Typography>
-          <Typography sx={{ fontSize: 15 }} color="#BAFF39" gutterBottom>
-            Average distance travelled Per Trip
+          <Typography
+            sx={{
+              fontSize: { xs: 16, sm: 12, md: 20, lg: 22 },
+              fontWeight: 500,
+            }}
+            color="#BAFF39"
+          >
+            AVG distance travelled
           </Typography>
-          <Typography variant="h4" component="div">
+          <Typography
+            sx={{
+              fontSize: { xs: 16, sm: 12, md: 20, lg: 30 },
+              fontWeight: 300,
+            }}
+            component="div"
+          >
             2,54 Km
           </Typography>
         </CardContent>
