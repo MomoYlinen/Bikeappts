@@ -13,20 +13,31 @@ import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 export default function PaginatedTrips() {
   const router = useRouter();
   const [page, setPage] = useState(1);
+  const [search, setSearch] = useState("");
+  const [searchField, setSearchField] = useState("");
   const { data } = useQuery(
-    ["trips", page],
+    ["trips", page, search],
     async () =>
-      await fetch(`http://localhost:8080/trips?page=${page}`).then((results) =>
-        results.json()
-      ),
+      await fetch(
+        `http://localhost:8080/trips?name=${search}&page=${page}`
+      ).then((results) => results.json()),
     {
       keepPreviousData: true,
     }
   );
+
+  function handleTextFieldChange(
+    e: React.ChangeEvent<HTMLInputElement>,
+    value: any
+  ) {
+    setSearchField(e.target.value);
+  }
 
   function handlePaginationChange(
     e: React.ChangeEvent<HTMLInputElement>,
@@ -40,7 +51,10 @@ export default function PaginatedTrips() {
     if (router.query.page) {
       setPage(Number(router.query.page));
     }
-  }, [router.query.page]);
+    if (router.query.name) {
+      setSearch(router.query.search as string);
+    }
+  }, [router.query.page, router.query.search]);
 
   return (
     <React.Fragment>
@@ -53,15 +67,17 @@ export default function PaginatedTrips() {
           marginTop: 50,
         }}
       >
-        <Pagination
-          count={data?.lastpage}
-          color="primary"
-          className="pagination"
-          page={page}
-          // @ts-ignore
-          onChange={handlePaginationChange}
-          size="small"
-        />
+        <Box sx={{ display: { xs: "none", sm: "flex" } }}>
+          <Pagination
+            count={data?.lastpage}
+            color="primary"
+            className="pagination"
+            page={page}
+            // @ts-ignore
+            onChange={handlePaginationChange}
+            size="small"
+          />
+        </Box>
         <div
           style={{
             display: "flex",
@@ -76,9 +92,22 @@ export default function PaginatedTrips() {
             size="small"
             variant="outlined"
             color="primary"
-            sx={{ mr: 2, width: "90%", background: "#ffffff", border: 1 }}
+            sx={{
+              mr: 2,
+              minWidth: { xs: 250, sm: 250, md: 450 },
+              background: "#ffffff",
+              border: 1,
+            }}
+            value={searchField}
+            // @ts-ignore
+            onChange={handleTextFieldChange}
           />
-          <Button variant="contained" color="primary" size="small">
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            onClick={() => setSearch(searchField)}
+          >
             Search
           </Button>
         </div>
@@ -148,58 +177,72 @@ export default function PaginatedTrips() {
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody sx={{ backgroundColor: "#ded9d9" }}>
-            {data?.data?.map((trip: any) => (
-              <TableRow
-                hover
-                role="checkbox"
-                key={trip.departurestationID}
-                sx={{ boxShadowBottom: 10 }}
-              >
-                <TableCell
-                  align="center"
-                  size="small"
-                  sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
+          {data?.total > 0 ? (
+            <TableBody sx={{ backgroundColor: "#ded9d9" }}>
+              {data?.data?.map((trip: any) => (
+                <TableRow
+                  hover
+                  role="checkbox"
+                  key={trip.departurestationID}
+                  sx={{ boxShadowBottom: 10 }}
                 >
-                  <Link
-                    href={"/stations/" + trip.departurestationID}
-                    color="secondary"
-                    underline="none"
+                  <TableCell
+                    align="center"
+                    size="small"
+                    sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
                   >
-                    {trip.departurestation}
-                  </Link>
-                </TableCell>
-                <TableCell
-                  align="center"
-                  size="small"
-                  sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
-                >
-                  {" "}
-                  <Link
-                    href={"/stations/" + trip.returnstationID}
-                    color="secondary"
-                    underline="none"
+                    <Link
+                      href={"/stations/" + trip.departurestationID}
+                      color="secondary"
+                      underline="none"
+                    >
+                      {trip.departurestation}
+                    </Link>
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                    size="small"
+                    sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
                   >
-                    {trip.returnstation}
-                  </Link>
-                </TableCell>
-                <TableCell
-                  align="center"
-                  size="small"
-                  sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
-                >
-                  {Math.round(trip.duration / 60)} min
-                </TableCell>
-                <TableCell
-                  align="center"
-                  size="small"
-                  sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
-                >
-                  {trip.distance} m
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
+                    {" "}
+                    <Link
+                      href={"/stations/" + trip.returnstationID}
+                      color="secondary"
+                      underline="none"
+                    >
+                      {trip.returnstation}
+                    </Link>
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                    size="small"
+                    sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
+                  >
+                    {Math.round(trip.duration / 60)} min
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                    size="small"
+                    sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
+                  >
+                    {trip.distance} m
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          ) : (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                mt: 5,
+                mb: 5,
+              }}
+            >
+              <Typography variant="h6">{`No stations with name: ${search}`}</Typography>
+            </Box>
+          )}
         </Table>
       </TableContainer>
       <Pagination

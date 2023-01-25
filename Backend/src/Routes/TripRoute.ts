@@ -9,7 +9,15 @@ const TripsDB = AppDataSource.getRepository(Trips);
 
 router.get(
   "/",(async (req:Request, res:Response) => {
-    const builder = TripsDB.createQueryBuilder("trips")
+
+      if (req.query.name === undefined || req.query.name === "") {
+        req.query.name = "";
+      }
+
+      const builder = TripsDB.createQueryBuilder("stations").where(
+        "returnstation like :name OR departurestation like :name",
+        { name: `${req.query.name}%` }
+      );
 
     const page:number = parseInt(req.query.page as any) > 1 ? parseInt(req.query.page as any) : 1
     const size:number = parseInt(req.query.size as any) >= 10 ? parseInt(req.query.size as any) : 50
