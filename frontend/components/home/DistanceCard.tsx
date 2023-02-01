@@ -21,11 +21,11 @@ export default function OutlinedCard() {
       <Card
         variant="outlined"
         sx={{
-          backgroundColor: "#6E6E6E",
+          backgroundColor: "#333",
           border: 1,
           borderRadius: 3,
           boxShadow: 10,
-          color: "#BAFF39",
+          color: "#fcbc19",
           width: { xs: 300, sm: 200, md: 300, lg: 350 },
           height: { xs: 150, sm: 120, md: 170, lg: 200 },
           display: "flex",
@@ -38,7 +38,7 @@ export default function OutlinedCard() {
               fontSize: { xs: 16, sm: 12, md: 20, lg: 22 },
               fontWeight: 500,
             }}
-            color="#BAFF39"
+            color="#fcbc19"
           >
             Total distance (Km)
           </Typography>
@@ -68,7 +68,7 @@ export default function OutlinedCard() {
               fontSize: { xs: 16, sm: 12, md: 20, lg: 22 },
               fontWeight: 500,
             }}
-            color="#BAFF39"
+            color="#fcbc19"
           >
             AVG distance travelled
           </Typography>

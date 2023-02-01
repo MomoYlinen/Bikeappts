@@ -4,10 +4,10 @@
 	 viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
 <style type="text/css">
 	.st0{display:none;fill:#000000;}
-	.st1{fill:#BAFF39;}
+	.st1{fill:#333;}
 	.st2{opacity:0.2;fill:#231F20;}
-	.st3{fill:#0000000;}
-	.st4{fill:none;stroke:#6E6E6E;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st3{fill:#e21f25;}
+	.st4{fill:none;stroke:#fcbc19;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 </style>
 <rect x="-55" y="-1345" class="st0" width="608" height="1984"/>
 <circle class="st1" cx="32" cy="32" r="32"/>

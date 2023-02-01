@@ -12,18 +12,18 @@ export default function OutlinedCard(props: any) {
       <Card
         variant="outlined"
         sx={{
-          backgroundColor: "#6E6E6E",
+          backgroundColor: "#333",
           border: 1,
           borderRadius: 3,
           boxShadow: 10,
-          color: "#BAFF39",
+          color: "#fcbc19",
           minWidth: { xs: 320, sm: 500, md: 400, lg: 550 },
         }}
       >
         <CardContent>
           <Typography
             sx={{ fontSize: 35, borderBottom: 2, mb: 2 }}
-            color="#BAFF39"
+            color="#fcbc19"
             gutterBottom
           >
             {props.title}
@@ -40,14 +40,14 @@ export default function OutlinedCard(props: any) {
             >
               <Typography
                 sx={{ fontSize: 24, fontWeight: 300 }}
-                color="#BAFF39"
+                color="#fcbc19"
                 gutterBottom
               >
                 {top.name}
               </Typography>
               <Typography
                 sx={{ fontSize: 24, fontWeight: 300 }}
-                color="#BAFF39"
+                color="#fcbc19"
                 gutterBottom
               >
                 {top.count}

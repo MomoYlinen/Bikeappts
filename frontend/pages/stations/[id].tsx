@@ -50,7 +50,13 @@ const Station = ({
           >
             <Grid item sx={{ justifyContent: "center", mr: { xs: 5, sm: 0 } }}>
               <Typography
-                sx={{ fontSize: { xs: 46, sm: 70 }, fontWeight: 500, mb: 2 }}
+                sx={{
+                  fontSize: { xs: 46, sm: 75 },
+                  fontWeight: 500,
+                  mb: 2,
+                  fontFamily: "Combo",
+                  color: "#e21f25",
+                }}
               >
                 {station.details.nimi}
               </Typography>

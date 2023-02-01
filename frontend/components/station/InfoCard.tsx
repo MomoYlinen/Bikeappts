@@ -11,11 +11,11 @@ export default function OutlinedCard(props: any) {
       <Card
         variant="elevation"
         sx={{
-          backgroundColor: "#6E6E6E",
+          backgroundColor: "#fcbc19",
           border: 1,
           borderRadius: 2,
           boxShadow: 10,
-          color: "#BAFF39",
+          color: "#e21f25",
           minWidth: { xs: 350, sm: 380, md: 380, lg: 450 },
         }}
       >
@@ -29,7 +29,7 @@ export default function OutlinedCard(props: any) {
           >
             <Typography
               sx={{ fontSize: 32, fontWeight: 500 }}
-              color="#BAFF39"
+              color="#e21f25"
               gutterBottom
             >
               Osoite
@@ -47,7 +47,7 @@ export default function OutlinedCard(props: any) {
           </Typography>
           <Typography
             sx={{ fontSize: 20, fontWeight: 500, mb: 2 }}
-            color="#BAFF39"
+            color="#e21f25"
           >
             {`Journeys that started from ${props.name}`}
           </Typography>
@@ -60,7 +60,7 @@ export default function OutlinedCard(props: any) {
               mr: { xs: 10, sm: 15 },
             }}
           >
-            <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#BAFF39">
+            <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#e21f25">
               Trips Started
             </Typography>
             <Typography
@@ -69,7 +69,7 @@ export default function OutlinedCard(props: any) {
                 fontWeight: 300,
                 mb: 2,
               }}
-              color="#BAFF39"
+              color="#e21f25"
             >
               {props.totaltripsstarted}
             </Typography>
@@ -83,7 +83,7 @@ export default function OutlinedCard(props: any) {
               mr: { xs: 8, sm: 12 },
             }}
           >
-            <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#BAFF39">
+            <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#e21f25">
               AVG Distance
             </Typography>
             <Typography
@@ -92,14 +92,14 @@ export default function OutlinedCard(props: any) {
                 fontWeight: 300,
                 mb: 2,
               }}
-              color="#BAFF39"
+              color="#e21f25"
             >
               {`${props.averagedistancestart} m`}
             </Typography>
           </Box>
           <Typography
             sx={{ fontSize: 20, fontWeight: 500, mb: 2 }}
-            color="#BAFF39"
+            color="#e21f25"
           >
             {`Journeys that ended to ${props.name}`}
           </Typography>
@@ -112,7 +112,7 @@ export default function OutlinedCard(props: any) {
               mr: { xs: 10, sm: 15 },
             }}
           >
-            <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#BAFF39">
+            <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#e21f25">
               Trips Ended
             </Typography>
             <Typography
@@ -121,7 +121,7 @@ export default function OutlinedCard(props: any) {
                 fontWeight: 300,
                 mb: 2,
               }}
-              color="#BAFF39"
+              color="#e21f25"
             >
               {props.totaltripsended}
             </Typography>
@@ -134,7 +134,7 @@ export default function OutlinedCard(props: any) {
               mr: { xs: 8, sm: 12 },
             }}
           >
-            <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#BAFF39">
+            <Typography sx={{ fontSize: 24, fontWeight: 500 }} color="#e21f25">
               AVG Distance
             </Typography>
             <Typography
@@ -142,7 +142,7 @@ export default function OutlinedCard(props: any) {
                 fontSize: 24,
                 fontWeight: 300,
               }}
-              color="#BAFF39"
+              color="#e21f25"
             >
               {`${props.averagedistanceend} m`}
             </Typography>

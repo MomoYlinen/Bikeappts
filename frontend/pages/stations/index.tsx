@@ -8,8 +8,10 @@ const Stations = () => {
     <>
       <NavBar />
       <Typography
-        variant="h3"
+        variant="h2"
         component="h2"
+        color="#e21f25"
+        fontFamily="Combo"
         sx={{ mt: 5, ml: 10, fontWeight: 700 }}
       >
         Stationlist

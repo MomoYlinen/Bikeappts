@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "@mui/material";
+import "@fontsource/akaya-kanadaka";
 
 const pages = ["Home", "Stations"];
 
@@ -31,17 +32,21 @@ function NavBar() {
   return (
     <AppBar
       position="static"
-      color="secondary"
+      color="primary"
       sx={{
-        borderBottom: 3,
-        borderBottomColor: "#BAFF39",
-        boxShadow: "#BAFF39",
+        borderBottom: 2,
+        borderBottomColor: "#e21f25",
+        boxShadow: 10,
       }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <DirectionsBikeIcon
-            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+            sx={{
+              display: { xs: "none", md: "flex" },
+              fontSize: 60,
+              mr: 5,
+            }}
           />
           <Typography
             variant="h3"
@@ -50,15 +55,15 @@ function NavBar() {
             href="/"
             sx={{
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              fontFamily: "Akaya Kanadaka",
               fontWeight: 900,
               letterSpacing: ".4rem",
-              color: "#BAFF39",
-              textDecoration: "none",
+              color: "#e21f25",
+              textDecoration: "underline",
               textShadow: 20,
             }}
           >
-            BikeApp
+            CityBikes
           </Typography>
           <DirectionsBikeIcon
             sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
@@ -75,7 +80,7 @@ function NavBar() {
               fontFamily: "monospace",
               fontWeight: 900,
               letterSpacing: ".7rem",
-              color: "#BAFF39",
+              color: "#e21f25",
               textDecoration: "none",
             }}
           >
@@ -90,18 +95,28 @@ function NavBar() {
           >
             <Button
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, mr: 10, color: "#BAFF39", display: "block" }}
+              sx={{ my: 2, mr: 10, color: "#e21f25", display: "block" }}
             >
-              <Link href="/" color="#BAFF39" underline="none">
-                <Typography textAlign="center">Home</Typography>
+              <Link href="/" color="#e21f25" underline="none">
+                <Typography
+                  textAlign="center"
+                  sx={{ fontFamily: "Combo", fontWeight: 700, fontSize: 20 }}
+                >
+                  Home
+                </Typography>
               </Link>
             </Button>
             <Button
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, mr: 10, color: "#BAFF39", display: "block" }}
+              sx={{ my: 2, mr: 10, color: "#fcbc19", display: "block" }}
             >
-              <Link href="/stations" color="#BAFF39" underline="none">
-                <Typography textAlign="center">Stations</Typography>
+              <Link href="/stations" color="#e21f25" underline="none">
+                <Typography
+                  textAlign="center"
+                  sx={{ fontFamily: "Combo", fontWeight: 700, fontSize: 20 }}
+                >
+                  Stations
+                </Typography>
               </Link>
             </Button>
           </Box>
@@ -141,12 +156,12 @@ function NavBar() {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link href="/" color="#000000" underline="none">
+                <Link href="/" color="#e21f25" underline="none">
                   <Typography textAlign="center">Home</Typography>
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link href="/stations" color="#000000" underline="none">
+                <Link href="/stations" color="#e21f25" underline="none">
                   <Typography textAlign="center">Stations</Typography>
                 </Link>
               </MenuItem>

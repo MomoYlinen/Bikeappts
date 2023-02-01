@@ -9,6 +9,7 @@ const HomeMessage = () => {
       <Box
         sx={{
           alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <motion.div
@@ -22,9 +23,9 @@ const HomeMessage = () => {
         >
           <Typography
             variant="h1"
-            color="#ffffff"
+            color="#e21f25"
             sx={{
-              fontSize: { xs: 35, sm: 55, md: 60, lg: 70 },
+              fontSize: { xs: 35, sm: 55, md: 60, lg: 75 },
               fontWeight: 700,
             }}
           >
@@ -43,8 +44,10 @@ const HomeMessage = () => {
         >
           <Typography
             variant="h6"
-            color="#ffffff"
-            sx={{ fontSize: { xs: 20, sm: 35, md: 40, lg: 55 } }}
+            color="#e21f25"
+            sx={{
+              fontSize: { xs: 20, sm: 35, md: 40, lg: 55 },
+            }}
           >
             In this app you can look data from 2021{" "}
           </Typography>

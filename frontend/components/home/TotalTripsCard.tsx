@@ -21,13 +21,14 @@ export default function OutlinedCard() {
       <Card
         variant="outlined"
         sx={{
-          backgroundColor: "#6E6E6E",
+          backgroundColor: "#333",
           border: 1,
+          borderColor: "#fcbc19",
           borderRadius: 3,
           boxShadow: 10,
           width: { xs: 300, sm: 200, md: 300, lg: 350 },
           height: { xs: 150, sm: 120, md: 170, lg: 200 },
-          color: "#BAFF39",
+          color: "#fcbc19",
           display: "flex",
           justifyContent: "center",
         }}

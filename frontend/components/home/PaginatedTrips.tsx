@@ -70,7 +70,7 @@ export default function PaginatedTrips() {
         <Box sx={{ display: { xs: "none", sm: "flex" } }}>
           <Pagination
             count={data?.lastpage}
-            color="primary"
+            color="secondary"
             className="pagination"
             page={page}
             // @ts-ignore
@@ -89,14 +89,13 @@ export default function PaginatedTrips() {
           <TextField
             id="outlined-basic"
             label="Search"
-            size="small"
+            size="medium"
             variant="outlined"
-            color="primary"
+            color="secondary"
             sx={{
               mr: 2,
               minWidth: { xs: 250, sm: 250, md: 450 },
               background: "#ffffff",
-              border: 1,
             }}
             value={searchField}
             // @ts-ignore
@@ -104,8 +103,8 @@ export default function PaginatedTrips() {
           />
           <Button
             variant="contained"
-            color="primary"
-            size="small"
+            sx={{ bgcolor: "#e21f25", color: "#000000" }}
+            size="medium"
             onClick={() => setSearch(searchField)}
           >
             Search
@@ -124,7 +123,7 @@ export default function PaginatedTrips() {
       >
         <Table sx={{ tableLayout: "fixed" }}>
           <TableHead
-            sx={{ border: 1, boxShadowBottom: 20, backgroundColor: "#BAFF39" }}
+            sx={{ border: 1, boxShadowBottom: 0, backgroundColor: "#fcbc19" }}
           >
             <TableRow>
               <TableCell
@@ -133,8 +132,8 @@ export default function PaginatedTrips() {
                   fontSize: { xs: 12, sm: 18 },
                   fontWeight: 700,
                   boxShadowBottom: 20,
-                  backgroundColor: "#6E6E6E",
-                  color: "#BAFF39",
+                  backgroundColor: "#333",
+                  color: "#fcbc19",
                 }}
               >
                 Departure Station
@@ -145,8 +144,8 @@ export default function PaginatedTrips() {
                   fontSize: { xs: 12, sm: 18 },
                   fontWeight: 700,
                   boxShadowBottom: 20,
-                  backgroundColor: "#6E6E6E",
-                  color: "#BAFF39",
+                  backgroundColor: "#333",
+                  color: "#fcbc19",
                 }}
               >
                 Return Station
@@ -157,8 +156,8 @@ export default function PaginatedTrips() {
                   fontSize: { xs: 12, sm: 18 },
                   fontWeight: 700,
                   boxShadowBottom: 20,
-                  backgroundColor: "#6E6E6E",
-                  color: "#BAFF39",
+                  backgroundColor: "#333",
+                  color: "#fcbc19",
                 }}
               >
                 Duration
@@ -168,16 +167,15 @@ export default function PaginatedTrips() {
                 sx={{
                   fontSize: { xs: 12, sm: 18 },
                   fontWeight: 700,
-                  boxShadowBottom: 20,
-                  backgroundColor: "#6E6E6E",
-                  color: "#BAFF39",
+                  backgroundColor: "#333",
+                  color: "#fcbc19",
                 }}
               >
                 Distance
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody sx={{ backgroundColor: "#ded9d9" }}>
+          <TableBody sx={{ backgroundColor: "#ffffff" }}>
             {data?.data?.map((trip: any) => (
               <TableRow
                 hover
@@ -188,11 +186,14 @@ export default function PaginatedTrips() {
                 <TableCell
                   align="center"
                   size="small"
-                  sx={{ fontSize: { xs: 10, sm: 16 }, color: "#00000" }}
+                  sx={{
+                    fontSize: { xs: 10, sm: 16 },
+                    color: "#00000",
+                  }}
                 >
                   <Link
                     href={"/stations/" + trip.departurestationID}
-                    color="secondary"
+                    color="#333"
                     underline="none"
                   >
                     {trip.departurestation}
@@ -206,7 +207,7 @@ export default function PaginatedTrips() {
                   {" "}
                   <Link
                     href={"/stations/" + trip.returnstationID}
-                    color="secondary"
+                    color="#333"
                     underline="none"
                   >
                     {trip.returnstation}
@@ -233,21 +234,19 @@ export default function PaginatedTrips() {
       </TableContainer>
       <Pagination
         count={data?.lastpage}
-        color="primary"
         className="pagination"
         page={page}
         // @ts-ignore
         onChange={handlePaginationChange}
         size="medium"
+        color="secondary"
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           mt: 3,
           mb: 10,
-          color: "#000000",
         }}
-        shape="rounded"
       />
     </React.Fragment>
   );
