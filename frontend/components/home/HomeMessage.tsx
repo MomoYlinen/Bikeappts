@@ -10,6 +10,8 @@ const HomeMessage = () => {
         sx={{
           alignItems: "center",
           justifyContent: "center",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         <motion.div
@@ -23,7 +25,7 @@ const HomeMessage = () => {
         >
           <Typography
             variant="h1"
-            color="#e21f25"
+            color="#ffffff"
             sx={{
               fontSize: { xs: 35, sm: 55, md: 60, lg: 75 },
               fontWeight: 700,
@@ -44,7 +46,7 @@ const HomeMessage = () => {
         >
           <Typography
             variant="h6"
-            color="#e21f25"
+            color="#ffffff"
             sx={{
               fontSize: { xs: 20, sm: 35, md: 40, lg: 55 },
             }}

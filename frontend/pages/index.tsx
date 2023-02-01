@@ -16,7 +16,7 @@ const Home = () => {
       <NavBar />
       <CardMedia
         component="div"
-        image="/kaupunkipyorat.jpeg"
+        image="kaupunkipyorat.jpeg"
         sx={{
           backgroundSize: "cover",
           height: { xs: "85vh", sm: "93vh", md: "91vh", xl: "95vh" },
@@ -30,7 +30,7 @@ const Home = () => {
           sx={{
             justifyContent: "center",
             display: "flex",
-            mt: { xs: 2, sm: 2 },
+            mt: { xs: 2, sm: 2, md: 0 },
           }}
         >
           <Grid item>
