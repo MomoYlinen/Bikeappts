@@ -174,7 +174,23 @@ Here is an example of request:
 http://localhost:8080/trips?name=&page=1&size=50
 ```
 
-<img src="/Backend/Documentation/GetRouteAll.png" width="250" height="300">
+```
+{
+departure: "2021-05-31T20:27:33.000Z",
+arrival: "2021-05-31T20:30:47.000Z",
+departurestationID: 70,
+departurestation: "Sammonpuistikko",
+returnstationID: 31,
+returnstation: "Marian sairaala",
+distance: 724,
+duration: 193
+}
+],
+total: 3126466,
+page: 1,
+lastpage: 62530
+
+```
 
 ##### Get trips by id
 
@@ -185,7 +201,33 @@ Get trips by id allows you to return a list of journeys with the given id. There
     Here is an example of request:
 
     ```
-    http://localhost:8080/trips/departurestation/10?page=1&size=50
+    http://localhost:8080/trips/departurestation/10?page=2&size=50
+    ```
+  
+  json``` {
+trips_departure: "2021-05-29T17:22:22.000Z",
+trips_arrival: "2021-05-29T17:31:41.000Z",
+trips_departurestationID: 10,
+trips_departurestation: "Kasarmitori",
+trips_returnstationID: 16,
+trips_returnstation: "Liisanpuistikko",
+trips_distance: 1676,
+trips_duration: 558
+},
+{
+trips_departure: "2021-05-29T17:17:21.000Z",
+trips_arrival: "2021-05-29T17:36:21.000Z",
+trips_departurestationID: 10,
+trips_departurestation: "Kasarmitori",
+trips_returnstationID: 116,
+trips_returnstation: "Linnanmäki",
+trips_distance: 3925,
+trips_duration: 1123
+}
+],
+total: 10186,
+page: 2,
+lastpage: 204 
     ```
 
 - Get trips by return station id
@@ -195,3 +237,30 @@ Get trips by id allows you to return a list of journeys with the given id. There
     ```
     http://localhost:8080/trips/returnstation/5?page=1&size=50
     ```
+
+    json```
+    {
+trips_departure: "2021-05-31T11:55:29.000Z",
+trips_arrival: "2021-05-31T12:02:08.000Z",
+trips_departurestationID: 9,
+trips_departurestation: "Erottajan aukio",
+trips_returnstationID: 5,
+trips_returnstation: "Sepänkatu",
+trips_distance: 1268,
+trips_duration: 396
+},
+{
+trips_departure: "2021-05-31T11:35:57.000Z",
+trips_arrival: "2021-05-31T11:47:04.000Z",
+trips_departurestationID: 9,
+trips_departurestation: "Erottajan aukio",
+trips_returnstationID: 5,
+trips_returnstation: "Sepänkatu",
+trips_distance: 1453,
+trips_duration: 663
+}
+],
+total: 15598,
+page: 1,
+lastpage: 312
+```
