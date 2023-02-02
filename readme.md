@@ -23,6 +23,8 @@ The key technologies used in this project include Next.js (TypeScript), Node.js/
       - [Backend (NodeJS/Express)](#backend-nodejsexpress)
       - [Frontend (NextJS)](#frontend-nextjs)
   - [REST API Overview](#rest-api-overview)
+      - [Trips Controller](#trips-controller)
+        - [Get trips](#get-trips)
 
 ## Pre-prequisites
 
@@ -53,6 +55,8 @@ Next, go to `add_trips_data.py` and provide crendentials to access your MySQL. R
 Run following commands to install dependencies to the Backend
 
 ```
+// make sure you are in Backend folder
+
 cd Backend
 npm install
 ```
@@ -70,6 +74,8 @@ npm run dev
 Run following commands to install dependencies to the Frontend
 
 ```
+// Make sure you  are in frontend folder
+
 cd frontend
 npm install
 ```
@@ -88,7 +94,7 @@ You can start the application in development mode by running:
 npm run dev
 ```
 
-If you want to run in production mode:
+If you want to run in production mode with static pages:
 
 ```
 npm run start
@@ -149,6 +155,22 @@ In conclusion, I am satisfied with the frontend technology stack. The frontend a
 
 ## REST API Overview
 
+This API consists of two controllers, which both have three routes. At the moment the API accepts only GET requests.
+
 Diagram of routes and methods in REST API
 
 ![RestApiDiagram](/Backend/Documentation/RestApiDiagram.png)
+
+#### Trips Controller
+
+##### Get trips
+
+Get trips returns list of journeys, total number of journeys, current page and total pages. The number of journeys returned is 50 by default. With parameters, you can customize how many journeys will be returned, which page you want to go and specify station by name.
+
+Here is an example of request:
+
+```
+http://localhost:8080/trips?name=&page=1&size=50
+```
+
+[GetRouteAll](Backend/Documentation/GetRouteAll.png)
