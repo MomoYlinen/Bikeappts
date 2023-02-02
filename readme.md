@@ -204,7 +204,7 @@ Get trips by id allows you to return a list of journeys with the given id. There
     http://localhost:8080/trips/departurestation/10?page=2&size=50
     ```
   
-  json``` {
+  ``` {
 trips_departure: "2021-05-29T17:22:22.000Z",
 trips_arrival: "2021-05-29T17:31:41.000Z",
 trips_departurestationID: 10,
@@ -238,7 +238,7 @@ lastpage: 204
     http://localhost:8080/trips/returnstation/5?page=1&size=50
     ```
 
-    json```
+    ```
     {
 trips_departure: "2021-05-31T11:55:29.000Z",
 trips_arrival: "2021-05-31T12:02:08.000Z",
