@@ -22,6 +22,7 @@ The key technologies used in this project include Next.js (TypeScript), Node.js/
       - [Database (MySQL/TypeOrm)](#database-mysqltypeorm)
       - [Backend (NodeJS/Express)](#backend-nodejsexpress)
       - [Frontend (NextJS)](#frontend-nextjs)
+  - [REST API Overview](#rest-api-overview)
 
 ## Pre-prequisites
 
@@ -139,3 +140,9 @@ The frontend technologies were among the most exciting aspects of this project f
 Another noteworthy frontend technology was Material-UI and React Query. I enjoy using Material-UI as it offers a convenient set of components, even if it may not be the most customizable. React Query proved to be extremely useful for pagination and searching purposes. I also experimented with Framer-Motion for some simple animations.
 
 In conclusion, I am satisfied with the frontend technology stack. The frontend appears to be fast and responsive, even with a large amount of data.
+
+## REST API Overview
+
+Diagram of routes and methods in REST API
+
+![RestApiDiagram](/Backend/Documentation/RestApiDiagram.png)
