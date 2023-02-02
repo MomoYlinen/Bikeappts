@@ -173,4 +173,4 @@ Here is an example of request:
 http://localhost:8080/trips?name=&page=1&size=50
 ```
 
-<img src="/Backend/Documentation/GetRouteAll.png" width="100" height="250">
+<img src="/Backend/Documentation/GetRouteAll.png" width="250" height="300">
