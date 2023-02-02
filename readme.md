@@ -25,6 +25,7 @@ The key technologies used in this project include Next.js (TypeScript), Node.js/
   - [REST API Overview](#rest-api-overview)
       - [Trips Controller](#trips-controller)
         - [Get trips](#get-trips)
+        - [Get trips by id](#get-trips-by-id)
 
 ## Pre-prequisites
 
@@ -174,3 +175,23 @@ http://localhost:8080/trips?name=&page=1&size=50
 ```
 
 <img src="/Backend/Documentation/GetRouteAll.png" width="250" height="300">
+
+##### Get trips by id
+
+Get trips by id allows you to return a list of journeys with the given id. There are two routes for this purpose. Like in get trips route, you can use custom parameters to move between different pages or choose different page size.
+
+- Get trips by departure station id
+
+    Here is an example of request:
+
+    ```
+    http://localhost:8080/trips/departurestation/10?page=1&size=50
+    ```
+
+- Get trips by return station id
+
+    Here is an example of request:
+
+    ```
+    http://localhost:8080/trips/returnstation/5?page=1&size=50
+    ```
