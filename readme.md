@@ -73,7 +73,37 @@ If you want to run in production mode:
 npm run start
 ```
 
+## Features
 
+As it was requested, there are three main features in this application.
+
+#### Homepage
+
+In this page, you will be provided with info about all the journeys made in summer 2021, with some additional information. Here are the features that you have:
+
+- Paginated list of all journeys
+- Ability to search journeys by providing station name
+- Information about total number of journeys made, total number of distance travelled and total number of time spend cycling.
+
+#### Stations page
+
+In this page, you will be provided with list of all stations. Here are features that you have:
+
+- Paginated list of all stations
+- Ability to search stations by providing station name or city
+
+#### Station page
+
+In this page, you can look data about individual station. Here are the features that you have:
+
+- Station name and address
+- Total number of journeys started from the station
+- Total number of journeys ended from the station
+- The average distance of a journey starting from the station
+- The average distance of a journey ending at the station
+- Top 5 most popular return stations for journeys starting from the station
+- Top 5 most popular departure stations for journeys ending at the station
+- Location of station provided by Google Maps
 
 ## Technologies
 
