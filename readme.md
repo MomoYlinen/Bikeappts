@@ -1,7 +1,7 @@
 # Helsinki city bike app (Dev Academy pre-assignment)
 This project was created for Solita's Dev Academy as a pre-assignment. The aim of the project is to develop an application that allows users to view data on city bike journeys taken during the summer of 2021 in Helsinki and Espoo. Additionally, users can search for specific city bike stations in these cities and view more detailed information about them.
 
-Three Excel files containing journey data from the summer of 2019 were provided, as well as one Excel file with a list of all city bike stations in Helsinki and Espoo. The task was to use these files to create a UI, back-end, and database. The full details of this pre-assignment can be found on the following [here] (https://github.com/solita/dev-academy-2023-exercise).
+Three Excel files containing journey data from the summer of 2019 were provided, as well as one Excel file with a list of all city bike stations in Helsinki and Espoo. The task was to use these files to create a UI, back-end, and database. The full details of this pre-assignment can be found on the following [here](https://github.com/solita/dev-academy-2023-exercise).
 
 The key technologies used in this project include Next.js (TypeScript), Node.js/Express (TypeScript), and MySQL/TypeORM.
 
