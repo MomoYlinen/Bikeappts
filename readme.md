@@ -33,17 +33,65 @@ Next, go to `add_stations_data.py` and provide crendentials to access your MySQL
 
 Next, go to `add_trips_data.py` and provide crendentials to access your MySQL. Run `add_trips_data.py` to create table and add all the stations to database.
 
+### Setting up Backend
 
-
-Next, run following commands to install dependencies to the Backend
+Run following commands to install dependencies to the Backend
 
 ```
 cd Backend
 npm install
 ```
-Do the same thing in frontend
+
+Go to `src` and provide crendentials to access your MySQL database in `data-source.ts`
+
+You can start the server by running:
+
+```
+npm run dev
+```
+
+### Setting up Frontend
+
+Run following commands to install dependencies to the Frontend
 
 ```
 cd frontend
 npm install
 ```
+
+If you want to use google maps, make `.env.local` file and provide your API Key.
+
+You can start the application in development mode by running:
+
+```
+npm run dev
+```
+
+If you want to run in production mode:
+
+```
+npm run start
+```
+
+
+
+## Technologies
+
+There were a lot of new technologies that i haven't use before. This was my first experience using TypeScript as the main language, instead of JavaScript. Additionally, it was also the first time I used Next.js, which is something i've been wanting to do for while. In my opinion, I believe I chose the best technology stack to complete this project. Please find below my breakdown and reasoning for my technology choices.
+
+#### Database (MySQL/TypeOrm)
+
+I believe that a relational database was essential for this project, given that there were over three million journeys with 500 stations provided as data. MySQL was my preferred choice for this, as it is my go-to database for relational databases. This was my first time using an Object-Relational Mapping (ORM) tool to manage my database in the backend, and I utilized TypeOrm, which was straightforward to set up and enabled me to run queries with ease. However, testing proved to be a challenge. I encountered difficulties finding an efficient solution for testing my backend with my database. Although I may have been able to find a solution with further effort, I decided to concentrate on other aspects of my project in order to make progress.
+
+
+#### Backend (NodeJS/Express)
+
+As the backend, I aimed to develop a REST API that could function as a standalone service for various applications. Given my prior experience with building REST APIs using Node.js with Express, I chose this technology stack for this project as well. I am confident that the REST API I created is capable and efficient, able to deliver results with custom parameters and pagination as necessary.
+
+#### Frontend (NextJS)
+
+The frontend technologies were among the most exciting aspects of this project for me. I had heard many positive things about Next.js, particularly with regards to its features such as static site generation, dynamic routes, and server-side rendering. I was not disappointed in my experience with it, as I had previous experience with React and React Native, so there was no steep learning curve for me. I was able to fully utilize the capabilities of Next.js and believe that it was the ideal choice for this project.
+
+Another noteworthy frontend technology was Material-UI and React Query. I enjoy using Material-UI as it offers a convenient set of components, even if it may not be the most customizable. React Query proved to be extremely useful for pagination and searching purposes. I also experimented with Framer-Motion for some simple animations.
+
+In conclusion, I am satisfied with the frontend technology stack. The frontend appears to be fast and responsive, even with a large amount of data.
