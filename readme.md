@@ -173,4 +173,4 @@ Here is an example of request:
 http://localhost:8080/trips?name=&page=1&size=50
 ```
 
-[GetRouteAll](Backend/Documentation/GetRouteAll.png)
+![GetRouteAll](Backend/Documentation/GetRouteAll.png)
