@@ -7,7 +7,21 @@ The key technologies used in this project include Next.js (TypeScript), Node.js/
 
 ## Table of Contents
 
-
+- [Helsinki city bike app (Dev Academy pre-assignment)](#helsinki-city-bike-app-dev-academy-pre-assignment)
+  - [Table of Contents](#table-of-contents)
+  - [Pre-prequisites](#pre-prequisites)
+  - [Installation](#installation)
+    - [Setting up the database](#setting-up-the-database)
+    - [Setting up Backend](#setting-up-backend)
+    - [Setting up Frontend](#setting-up-frontend)
+  - [Features](#features)
+      - [Homepage](#homepage)
+      - [Stations page](#stations-page)
+      - [Station page](#station-page)
+  - [Technologies](#technologies)
+      - [Database (MySQL/TypeOrm)](#database-mysqltypeorm)
+      - [Backend (NodeJS/Express)](#backend-nodejsexpress)
+      - [Frontend (NextJS)](#frontend-nextjs)
 
 ## Pre-prequisites
 
