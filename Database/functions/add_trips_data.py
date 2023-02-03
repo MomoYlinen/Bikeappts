@@ -3,7 +3,7 @@ from mysql.connector import Error
 
 def insert_tripdata_to_table(insert_data,dbhost,dbuser,dbpassword):
     try:
-        conn = mysql.connector.connect(host=dbhost, database='bikeappdbtest1', user=dbuser, password=dbpassword)
+        conn = mysql.connector.connect(host=dbhost, database='bikeappdb', user=dbuser, password=dbpassword)
         if conn.is_connected():
             cursor = conn.cursor()
             cursor.execute("select database();")

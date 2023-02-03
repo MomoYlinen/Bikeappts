@@ -41,15 +41,34 @@ git clone https://github.com/MomoYlinen/Bikeappts.git
 
 ### Setting up the database
 
-To be able to run this project, you have to set up the database first. Here are the instructions.
+To be able to run this project, you have to set up your own database first. It's not straightforward, but if you follow this instructions, it should be fairly easy to do.
 
-First go to folder `Database` and copy the excel files that are used in this project. You can find them [here](https://github.com/solita/dev-academy-2023-exercise). There should be three files containing journeys and one file containing list of stations.
+- Start by downloading the files from Solita's repository. There should be three files containing journeys and one containing all the stations. Link is [here](https://github.com/solita/dev-academy-2023-exercise).
+- Move the files to `Database`folder. Make sure that they are not in `functions` folder.
 
-Go to `create_database_bikeapp.py` and provide crendentials to access your MySQL. Run `create_database_bikeapp.py` to create database for station and trip data.
+- Open `database_main.py` and provide your crendentials to connect to the MySQL. Add the names of the files that you downloaded, there is slot for each file. Double check that you have typed the  name of the file right.
 
-Next, go to `add_stations_data.py` and provide crendentials to access your MySQL. Run `add_stations_data.py` to create table and add all the stations to database.
+It should look like this:
 
-Next, go to `add_trips_data.py` and provide crendentials to access your MySQL. Run `add_trips_data.py` to create table and add all the stations to database.
+```
+# INSERT DATABASE CREDENTIALS HERE!
+host='localhost'
+user='root'
+password='Password'
+
+# PUT CSV FILES TO Database folder AND INSERT THE NAMES HERE!
+
+stations='citybikes.csv'
+trips1='2021-05.csv'
+trips2='2021-06.csv'
+trips3='2021-07.csv'
+```
+
+- Run `database_main.py`
+
+- The application will create a new database, with tables for journeys and stations and add all journeys and stations to database. There is lot of data, so it will take around 10-15 minutes to run, if you are using local MySQL instannce.
+  
+- You should now have database with all the necessary data in it.
 
 ### Setting up Backend
 

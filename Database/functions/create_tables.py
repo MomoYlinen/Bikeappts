@@ -1,7 +1,7 @@
 import mysql.connector
 
 def create_tables(dbhost,dbuser,dbpassword):
-    conn = mysql.connector.connect(host=dbhost, database='bikeappdbtest1',user=dbuser, password=dbpassword)
+    conn = mysql.connector.connect(host=dbhost, database='bikeappdb',user=dbuser, password=dbpassword)
     print("You're connected to MySQL")
     cursor = conn.cursor()
     cursor.execute("SELECT DATABASE();")

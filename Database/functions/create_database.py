@@ -6,7 +6,7 @@ def create_database(dbhost,dbuser,dbpassword):
     print("You're connected to MySQL")
     print('Creating database....')
     cursor = conn.cursor()
-    cursor.execute("CREATE DATABASE IF NOT EXISTS bikeappdbtest1")
+    cursor.execute("CREATE DATABASE IF NOT EXISTS bikeappdb")
     print('Database created!')
     conn.commit()
     conn.close()
