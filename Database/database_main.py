@@ -2,7 +2,7 @@ from functions.create_database import create_database
 from functions.create_tables import create_tables
 from functions.add_stations_data import insert_stations_to_table
 from functions.add_trips_data import insert_tripdata_to_table
-from functions.convert_csv_files import convert_csv_for_database
+from convert_csv_files import convert_csv_for_database
 
 
 # INSERT DATABASE CREDENTIALS HERE!

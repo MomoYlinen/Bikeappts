@@ -47,7 +47,12 @@ Install Pandas and MySQL-connector
 
 ```
 pip3 install pandas
+# Or
+pip install pandas
+
 pip3 install mysql-connector-python
+# Or
+pip install mysql-connector-python
 ```
 
 - Start by downloading the files from Solita's repository. There should be three files containing journeys and one containing all the stations. Link is [here](https://github.com/solita/dev-academy-2023-exercise).
