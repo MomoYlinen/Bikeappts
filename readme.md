@@ -43,6 +43,13 @@ git clone https://github.com/MomoYlinen/Bikeappts.git
 
 To be able to run this project, you have to set up your own database first. It's not straightforward, but if you follow this instructions, it should be fairly easy to do.
 
+Install Pandas and MySQL-connector
+
+```
+pip3 install pandas
+pip3 install mysql-connector-python
+```
+
 - Start by downloading the files from Solita's repository. There should be three files containing journeys and one containing all the stations. Link is [here](https://github.com/solita/dev-academy-2023-exercise).
 - Move the files to `Database`folder. Make sure that they are not in `functions` folder.
 
