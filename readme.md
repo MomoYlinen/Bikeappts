@@ -29,7 +29,7 @@ The key technologies used in this project include Next.js (TypeScript), Node.js/
 
 ## Pre-prequisites
 
-In order to run this project locally, it is necessary to have MySQL installed on your computer. Alternatively, you can use a Docker image of MySQL. It is also required to have Node.js installed on your machine.
+In order to run this project locally, it is necessary to have MySQL installed on your computer. Alternatively, you can use a Docker image of MySQL. It is also required to have Node.js and Python installed on your machine.
 
 ## Installation
 
