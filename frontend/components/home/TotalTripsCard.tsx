@@ -47,6 +47,7 @@ export default function OutlinedCard() {
             sx={{
               fontSize: { xs: 16, sm: 12, md: 20, lg: 24 },
               fontWeight: 300,
+              mb: 5,
             }}
             component="div"
             gutterBottom
@@ -65,17 +66,10 @@ export default function OutlinedCard() {
             </motion.div>
           </Typography>
           <Typography
-            sx={{ fontSize: { xs: 16, sm: 12, md: 20 } }}
+            sx={{ fontSize: { xs: 16, sm: 12, md: 24 } }}
             color="primary"
-            gutterBottom
           >
             Between May - July 2021
-          </Typography>
-          <Typography
-            sx={{ fontSize: { xs: 16, sm: 12, md: 20 } }}
-            component="div"
-          >
-            Later
           </Typography>
         </CardContent>
       </Card>
