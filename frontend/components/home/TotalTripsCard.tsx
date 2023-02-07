@@ -38,16 +38,18 @@ export default function OutlinedCard() {
             sx={{
               fontSize: { xs: 16, sm: 12, md: 20, lg: 24 },
               fontWeight: 500,
+              textAlign: "center",
             }}
             color="primary"
+            gutterBottom
           >
-            Total trips
+            Total Journeys Made
           </Typography>
           <Typography
             sx={{
-              fontSize: { xs: 16, sm: 12, md: 20, lg: 24 },
+              fontSize: { xs: 16, sm: 14, md: 22, lg: 30 },
               fontWeight: 300,
-              mb: 5,
+              textAlign: "center",
             }}
             component="div"
             gutterBottom
@@ -66,7 +68,7 @@ export default function OutlinedCard() {
             </motion.div>
           </Typography>
           <Typography
-            sx={{ fontSize: { xs: 16, sm: 12, md: 24 } }}
+            sx={{ fontSize: { xs: 16, sm: 12, md: 24 }, textAlign: "center" }}
             color="primary"
           >
             Between May - July 2021
