@@ -124,7 +124,7 @@ npm install
 If you want to use google maps, make `.env.local` file and provide your API Key.
 
 ```
-// Add your API key to the file
+// Add your GOOGLE MAPS API KEY to the file
 
 NEXT_PUBLIC_GOOGLE_MAPS_KEY = 'YOUR SECRET HERE'
 
