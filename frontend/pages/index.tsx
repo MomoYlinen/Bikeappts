@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import NavBar from "../components/NavBar";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -13,6 +14,9 @@ import { CardMedia } from "@mui/material";
 const Home = () => {
   return (
     <>
+      <Head>
+        <title>BikeApp - Home </title>
+      </Head>
       <NavBar />
       <CardMedia
         component="div"

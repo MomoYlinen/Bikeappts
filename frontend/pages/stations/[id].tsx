@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import NavBar from "@/components/NavBar";
 import { Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
@@ -30,6 +31,9 @@ const Station = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
+      <Head>
+        <title> BikeApp - Station</title>
+      </Head>
       <NavBar />
       <Container maxWidth="xl" sx={{ mt: 2, justifyContent: "center" }}>
         <Grid maxWidth="xl">
