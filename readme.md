@@ -93,7 +93,16 @@ cd Backend
 npm install
 ```
 
-Go to `src` and provide crendentials to access your MySQL database in `data-source.ts`
+Go to `src` and provide crendentials to access your MySQL database in `data-source.ts` or you can make `.env` file and copy this code snippet.
+
+```
+// This are the environment variables i used to configure database.
+
+HOST = ''
+MYSQL_USER = ''
+MYSQL_PASSWORD = ''
+MYSQL_DATABASE = 'bikeappdb'
+```
 
 You can start the server by running:
 
@@ -129,6 +138,8 @@ npm run dev
 If you want to run in production mode with static pages:
 
 ```
+npm run build
+
 npm run start
 ```
 
